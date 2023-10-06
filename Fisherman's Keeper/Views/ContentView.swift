@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack{
-            ScrollView {
-                FishCardView()
+        NavigationStack{
+            VStack{
+                ScrollView {
+                    Grid{
+                        HStack{
+                            FishCardView()
+                            FishCardView()
+                        }
+                        
+                    }
+                    
+                }
             }
+            
         }
     }
 }
