@@ -11,6 +11,7 @@
 		5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A182AD065CE00634047 /* ContentView.swift */; };
 		5CAB3A1B2AD065D000634047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB3A1A2AD065D000634047 /* Assets.xcassets */; };
 		5CAB3A1E2AD065D000634047 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB3A1D2AD065D000634047 /* Preview Assets.xcassets */; };
+		5CAB3A262AD0664000634047 /* FishCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A252AD0664000634047 /* FishCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		5CAB3A182AD065CE00634047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5CAB3A1A2AD065D000634047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CAB3A1D2AD065D000634047 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5CAB3A252AD0664000634047 /* FishCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */,
-				5CAB3A182AD065CE00634047 /* ContentView.swift */,
+				5CAB3A242AD0662500634047 /* Views */,
 				5CAB3A1A2AD065D000634047 /* Assets.xcassets */,
 				5CAB3A1C2AD065D000634047 /* Preview Content */,
 			);
@@ -65,6 +67,15 @@
 				5CAB3A1D2AD065D000634047 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5CAB3A242AD0662500634047 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CAB3A182AD065CE00634047 /* ContentView.swift */,
+				5CAB3A252AD0664000634047 /* FishCardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CAB3A262AD0664000634047 /* FishCardView.swift in Sources */,
 				5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */,
 				5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */,
 			);
