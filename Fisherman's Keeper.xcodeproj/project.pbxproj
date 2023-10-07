@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C00F9012AD1C2BF0049CAD1 /* fishes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C00F9002AD1C2BF0049CAD1 /* fishes.json */; };
+		5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */; };
 		5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */; };
 		5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A182AD065CE00634047 /* ContentView.swift */; };
 		5CAB3A1B2AD065D000634047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB3A1A2AD065D000634047 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C00F9002AD1C2BF0049CAD1 /* fishes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fishes.json; sourceTree = "<group>"; };
+		5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFishListView.swift; sourceTree = "<group>"; };
 		5CAB3A132AD065CE00634047 /* Fisherman's Keeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fisherman's Keeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fisherman_s_KeeperApp.swift; sourceTree = "<group>"; };
 		5CAB3A182AD065CE00634047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 				5CAB3A242AD0662500634047 /* Views */,
 				5CAB3A1A2AD065D000634047 /* Assets.xcassets */,
 				5CAB3A1C2AD065D000634047 /* Preview Content */,
+				5C00F9002AD1C2BF0049CAD1 /* fishes.json */,
 			);
 			path = "Fisherman's Keeper";
 			sourceTree = "<group>";
@@ -74,6 +79,7 @@
 			children = (
 				5CAB3A182AD065CE00634047 /* ContentView.swift */,
 				5CAB3A252AD0664000634047 /* FishCardView.swift */,
+				5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CAB3A1E2AD065D000634047 /* Preview Assets.xcassets in Resources */,
+				5C00F9012AD1C2BF0049CAD1 /* fishes.json in Resources */,
 				5CAB3A1B2AD065D000634047 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +157,7 @@
 			files = (
 				5CAB3A262AD0664000634047 /* FishCardView.swift in Sources */,
 				5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */,
+				5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */,
 				5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
