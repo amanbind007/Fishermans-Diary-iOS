@@ -8,47 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var searchText: String = ""
+
+    var data: [String] = [
+        
+        "Walking catfish",
     
-    @State var searchText : String  = ""
-    
+    ]
+    private let adaptiveColumn = [
+        GridItem(.flexible(minimum: 170, maximum: 175)),
+        GridItem(.flexible(minimum: 170, maximum: 175)),
+    ]
+
     var body: some View {
-        NavigationStack{
-            
-            TabView{
-                
-                VStack{
-                    ScrollView {
-                        Grid{
-                            HStack{
-                                FishCardView()
-                                FishCardView()
-                            }
-                            
+        TabView {
+            NavigationStack {
+                ScrollView {
+                    LazyVGrid(columns: adaptiveColumn, content: {
+                        ForEach(data, id: \.self) { _ in
+                            FishCardView()
                         }
-                        
-                    }
+                    })
                 }
-                
-                
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search Fish")
-                }
-                
-                MyFishListView()
-                    .tabItem {
-                        Image(systemName: "fish")
-                        Text("My Fish List")
-                        
-                    }
-                
-                
-                    
-                
-                
+                .navigationTitle("Search Fish")
             }
             .searchable(text: $searchText)
-            .navigationTitle("Search Fish")
+            .tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Search Fish")
+            }
+
+            NavigationStack {
+                MyFishListView()
+            }
+            .tabItem {
+                Image(systemName: "fish")
+                Text("My Fish List")
+            }
         }
     }
 }

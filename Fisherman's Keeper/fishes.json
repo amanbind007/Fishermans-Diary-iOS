@@ -21029,45 +21029,16 @@
       "2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Isistius_brasiliensis.jpg/440px-Isistius_brasiliensis.jpg"
     },
     "meta": {
-      "": {
-        "": ""
+      "scientific_classification": {
+          "kingdom": "animalia",
+          "phylum": "chordata",
+          "class": "chondrichthyes",
+          "order": "squaliformes",
+          "family": "dalatiidae",
+          "genus": "Isistius",
+          "species": "I. brasiliensis"
       }
     }
-  },
-  {
-    "id": 1102,
-    "name": "Cookiecutter shark",
-    "url": "https://en.wikipedia.org/wiki/Cookiecutter_shark",
-    "img_src_set": {
-      "1.5x": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Isistius_brasiliensis.jpg/330px-Isistius_brasiliensis.jpg",
-      "2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Isistius_brasiliensis.jpg/440px-Isistius_brasiliensis.jpg"
-    },
-    "meta": {
-      "": {
-        "": ""
-      }
-    }
-  },
-  {
-    "id": 1103,
-    "name": "Squawfish (disambiguation)",
-    "url": "https://en.wikipedia.org/wiki/Squawfish_(disambiguation)",
-    "img_src_set": "Not available",
-    "meta": {}
-  },
-  {
-    "id": 1104,
-    "name": "Squawfish (disambiguation)",
-    "url": "https://en.wikipedia.org/wiki/Squawfish_(disambiguation)",
-    "img_src_set": "Not available",
-    "meta": {}
-  },
-  {
-    "id": 1105,
-    "name": "Squawfish (disambiguation)",
-    "url": "https://en.wikipedia.org/wiki/Squawfish_(disambiguation)",
-    "img_src_set": "Not available",
-    "meta": {}
   }
 ]
 
