@@ -10,6 +10,7 @@
 		5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */; };
 		5C8719692ADB0C4300CA7D09 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8719682ADB0C4300CA7D09 /* SwiftSoup */; };
 		5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */; };
+		5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */; };
 		5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */; };
 		5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A182AD065CE00634047 /* ContentView.swift */; };
 		5CAB3A1B2AD065D000634047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB3A1A2AD065D000634047 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFishListView.swift; sourceTree = "<group>"; };
 		5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fishbase.swift; sourceTree = "<group>"; };
+		5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPreviewProvider.swift; sourceTree = "<group>"; };
 		5CAB3A132AD065CE00634047 /* Fisherman's Keeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fisherman's Keeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fisherman_s_KeeperApp.swift; sourceTree = "<group>"; };
 		5CAB3A182AD065CE00634047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5CAB3A1D2AD065D000634047 /* Preview Assets.xcassets */,
+				5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				5CAB3A262AD0664000634047 /* FishCardView.swift in Sources */,
 				5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */,
 				5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */,
+				5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */,
 				5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */,
 				5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */,
 			);

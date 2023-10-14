@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct FishCardView: View {
+    
+    let fish : Fish
+    
     var body: some View {
         ZStack{
             VStack{
-                AsyncImage(url: URL(string: "link to image")) { image in
+                AsyncImage(url: URL(string: fish.imageURL ?? "")) { image in
                     image
+                        .resizable()
+                        .scaledToFit()
                         .cornerRadius(10)
+                        
                 } placeholder: {
                     Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
+                        .resizable()
+                        .scaledToFit()
                         .cornerRadius(10)
+                        
                 }
 
-                Text("Fish Name")
+                Text(fish.commonEnglishName ?? "")
                     .font(.body)
                 
             }
@@ -42,5 +51,8 @@ struct FishCardView: View {
 }
 
 #Preview {
-    FishCardView()
+    
+    
+    
+    FishCardView(fish: FishPreviewProvider.fish)
 }

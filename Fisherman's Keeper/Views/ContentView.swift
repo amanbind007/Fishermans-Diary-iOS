@@ -16,8 +16,7 @@ struct ContentView: View {
     
     
     private let adaptiveColumn = [
-        GridItem(.flexible(minimum: 170, maximum: 175)),
-        GridItem(.flexible(minimum: 170, maximum: 175)),
+        GridItem()
     ]
 
     var body: some View {
@@ -25,8 +24,8 @@ struct ContentView: View {
             NavigationStack {
                 ScrollView {
                     LazyVGrid(columns: adaptiveColumn, content: {
-                        ForEach(fishbase.fishes, id: \.scientificName) { _ in
-                            FishCardView()
+                        ForEach(fishbase.fishes, id: \.scientificName) { fish in
+                            FishCardView(fish: fish)
                         }
                     })
                 }
