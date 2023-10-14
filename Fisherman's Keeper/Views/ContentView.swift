@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var searchText: String = ""
-
-    var data: [String] = [
-        
-        "Walking catfish",
+    @State var searchText: String = "Fish"
     
-    ]
+    @ObservedObject var fishbase = FishbaseSearch()
+    
+    
+    
+    
     private let adaptiveColumn = [
         GridItem(.flexible(minimum: 170, maximum: 175)),
         GridItem(.flexible(minimum: 170, maximum: 175)),
@@ -25,7 +25,7 @@ struct ContentView: View {
             NavigationStack {
                 ScrollView {
                     LazyVGrid(columns: adaptiveColumn, content: {
-                        ForEach(data, id: \.self) { _ in
+                        ForEach(fishbase.fishes, id: \.scientificName) { _ in
                             FishCardView()
                         }
                     })
@@ -33,6 +33,12 @@ struct ContentView: View {
                 .navigationTitle("Search Fish")
             }
             .searchable(text: $searchText)
+            .onSubmit(of: .search) {
+                fishbase.getFish(searchText)
+            }
+            .onAppear(perform: {
+                fishbase.getFish(searchText)
+            })
             .tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Search Fish")
