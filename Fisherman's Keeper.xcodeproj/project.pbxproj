@@ -14,6 +14,7 @@
 		5C8719752ADC21EC00CA7D09 /* PTSerif-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8719742ADC21EB00CA7D09 /* PTSerif-BoldItalic.ttf */; };
 		5C8719772ADC22F600CA7D09 /* PTSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8719762ADC22F600CA7D09 /* PTSerif-Regular.ttf */; };
 		5C87197A2ADC2A5300CA7D09 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8719792ADC2A5300CA7D09 /* CachedAsyncImage */; };
+		5C87197C2ADC38D400CA7D09 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87197B2ADC38D400CA7D09 /* WebView.swift */; };
 		5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */; };
 		5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A182AD065CE00634047 /* ContentView.swift */; };
 		5CAB3A1B2AD065D000634047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB3A1A2AD065D000634047 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		5C8719722ADC1FCE00CA7D09 /* Fisherman-s-Keeper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fisherman-s-Keeper-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5C8719742ADC21EB00CA7D09 /* PTSerif-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5C8719762ADC22F600CA7D09 /* PTSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSerif-Regular.ttf"; sourceTree = "<group>"; };
+		5C87197B2ADC38D400CA7D09 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5CAB3A132AD065CE00634047 /* Fisherman's Keeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fisherman's Keeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fisherman_s_KeeperApp.swift; sourceTree = "<group>"; };
 		5CAB3A182AD065CE00634047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				5CAB3A182AD065CE00634047 /* ContentView.swift */,
 				5CAB3A252AD0664000634047 /* FishCardView.swift */,
 				5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */,
+				5C87197B2ADC38D400CA7D09 /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */,
 				5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */,
 				5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */,
+				5C87197C2ADC38D400CA7D09 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

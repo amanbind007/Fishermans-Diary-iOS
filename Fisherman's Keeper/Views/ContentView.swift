@@ -22,15 +22,20 @@ struct ContentView: View {
                 ScrollView {
                     LazyVGrid(columns: adaptiveColumn, content: {
                         ForEach(fishbase.fishes, id: \.scientificName) { fish in
-                            FishCardView(fish: fish)
-                                .padding(.horizontal)
-                                .shadow(radius: 10)
+                            NavigationLink {
+                                WebView(url: URL(string: fish.articleURL!)!)
+                                    .navigationTitle(fish.scientificName!)
+                            } label: {
+                                FishCardView(fish: fish)
+                                    .padding(.horizontal)
+                                    .shadow(radius: 10)
+                            }.buttonStyle(.plain)
+
                         }
                     })
                 }
                 .navigationTitle("Search Fish")
             }
-
             .searchable(text: $searchText)
             .onSubmit(of: .search) {
                 fishbase.getFish(searchText)
