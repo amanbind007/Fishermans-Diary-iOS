@@ -9,12 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var searchText: String = "Fish"
-    
+
     @ObservedObject var fishbase = FishbaseSearch()
-    
-    
-    
-    
+
     private let adaptiveColumn = [
         GridItem()
     ]
@@ -26,11 +23,14 @@ struct ContentView: View {
                     LazyVGrid(columns: adaptiveColumn, content: {
                         ForEach(fishbase.fishes, id: \.scientificName) { fish in
                             FishCardView(fish: fish)
+                                .padding(.horizontal)
+                                .shadow(radius: 10)
                         }
                     })
                 }
                 .navigationTitle("Search Fish")
             }
+
             .searchable(text: $searchText)
             .onSubmit(of: .search) {
                 fishbase.getFish(searchText)
