@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var searchText: String = "Fish"
 
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var fishbase = FishbaseSearch()
 
     private let adaptiveColumn = [
@@ -25,18 +26,29 @@ struct ContentView: View {
                             NavigationLink {
                                 WebView(url: URL(string: fish.articleURL!)!)
                                     .navigationTitle(fish.scientificName!)
+
                             } label: {
                                 FishCardView(fish: fish)
                                     .padding(.horizontal)
-                                    .shadow(radius: 10)
+                                    .shadow(color: .black, radius: 10)
                             }.buttonStyle(.plain)
-
                         }
                     })
                 }
+                .background {
+                    let darkBackground = Image("DarkBackground", bundle: Bundle(path: "Assets"))
+                        .resizable()
+                        .ignoresSafeArea()
+                    let lightBackground = Image("LightBackground", bundle: Bundle(path: "Assets"))
+                        .resizable()
+                        .ignoresSafeArea()
+                    
+
+                    colorScheme == .dark ? darkBackground : lightBackground
+                }
                 .navigationTitle("Search Fish")
             }
-            .searchable(text: $searchText)
+            .searchable(text: $searchText, prompt: Text("Enter Fish Name"))
             .onSubmit(of: .search) {
                 fishbase.getFish(searchText)
             }

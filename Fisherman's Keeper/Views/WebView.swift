@@ -20,6 +20,8 @@ struct WebView: UIViewRepresentable {
         let request = URLRequest(url: url)
         
         webView.load(request)
+        webView.backgroundColor = UIColor(named: "FishCard")
+        //Color("FishCard", bundle: Bundle.init(path: "Assets"))
     }
     
 }

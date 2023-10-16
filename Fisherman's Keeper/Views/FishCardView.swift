@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FishCardView: View {
     let fish: Fish
-    
+
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
@@ -19,35 +19,40 @@ struct FishCardView: View {
                         .resizable()
                         .frame(width: .infinity, height: 200)
                         .cornerRadius(10)
-                        
+
                 } placeholder: {
                     Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
                         .resizable()
                         .frame(width: .infinity, height: 200)
                         .cornerRadius(10)
                 }
-                   
+
                 HStack {
                     Text(fish.scientificName ?? "")
                         .font(Font.custom("PTSerif-BoldItalic", size: 20))
+                        .foregroundColor(.fishCardText)
+
                     Spacer()
                 }
                 .padding(.horizontal, 7)
                 HStack {
                     Text(fish.commonEnglishName ?? "")
                         .font(Font.custom("PTSerif-Regular", size: 18))
-                    
+                        .foregroundColor(.fishCardText)
+
                     Spacer()
                     Text(fish.familyName ?? "")
                         .font(Font.custom("PTSerif-Regular", size: 15))
+                        .foregroundColor(.primary)
+                        .opacity(1.0)
                 }
                 .padding(.horizontal, 7)
             }
             .padding(5)
-            .background(.pink)
+            .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 15))
         }
-        
+
         .padding(.top, 8)
     }
 }
