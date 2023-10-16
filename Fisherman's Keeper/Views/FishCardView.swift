@@ -49,10 +49,26 @@ struct FishCardView: View {
                 .padding(.horizontal, 7)
             }
             .padding(5)
-            .background(.ultraThinMaterial)
+            .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 15))
+            .shadow(color: .black, radius: 10)
+            
+            
+            Button(action: {
+                
+            }, label: {
+                Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .padding(2)
+                    .background(Color.white)
+                    .clipShape(Circle())
+                
+            })
+            .offset(CGSize(width: 150.0, height: -105.0))
+            
+            
         }
-
         .padding(.top, 8)
     }
 }

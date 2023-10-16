@@ -30,7 +30,7 @@ struct ContentView: View {
                             } label: {
                                 FishCardView(fish: fish)
                                     .padding(.horizontal)
-                                    .shadow(color: .black, radius: 10)
+
                             }.buttonStyle(.plain)
                         }
                     })
@@ -42,7 +42,6 @@ struct ContentView: View {
                     let lightBackground = Image("LightBackground", bundle: Bundle(path: "Assets"))
                         .resizable()
                         .ignoresSafeArea()
-                    
 
                     colorScheme == .dark ? darkBackground : lightBackground
                 }
