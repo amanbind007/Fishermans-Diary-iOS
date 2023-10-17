@@ -17,13 +17,13 @@ struct FishCardView: View {
                 CachedAsyncImage(url: URL(string: fish.imageURL ?? "")) { image in
                     image
                         .resizable()
-                        .frame(width: .infinity, height: 200)
+                        .frame(width: UIScreen.main.bounds.width-35, height: 200)
                         .cornerRadius(10)
 
                 } placeholder: {
                     Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
                         .resizable()
-                        .frame(width: .infinity, height: 200)
+                        .frame(width: UIScreen.main.bounds.width-35, height: 200)
                         .cornerRadius(10)
                 }
 

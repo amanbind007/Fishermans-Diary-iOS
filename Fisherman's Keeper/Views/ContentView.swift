@@ -5,6 +5,7 @@
 //  Created by Aman Bind on 06/10/23.
 //
 
+import SwiftfulLoadingIndicators
 import SwiftUI
 
 struct ContentView: View {
@@ -33,6 +34,26 @@ struct ContentView: View {
 
                             }.buttonStyle(.plain)
                         }
+
+                        if fishbase.pageNumberStart < fishbase.pageNumberStop {
+                            Color.clear
+                                .onAppear {
+                                    fishbase.getMoreFish(searchText)
+                                }
+
+                        } else {
+                            Text("No More Results")
+                                .font(.headline)
+                                .foregroundStyle(Color.white)
+                                .padding()
+                                .background {
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .background(Material.regular)
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 35))
+                            
+                        }
+
                     })
                 }
                 .background {

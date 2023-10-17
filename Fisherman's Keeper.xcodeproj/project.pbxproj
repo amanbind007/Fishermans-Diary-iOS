@@ -15,6 +15,7 @@
 		5C8719772ADC22F600CA7D09 /* PTSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8719762ADC22F600CA7D09 /* PTSerif-Regular.ttf */; };
 		5C87197A2ADC2A5300CA7D09 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8719792ADC2A5300CA7D09 /* CachedAsyncImage */; };
 		5C87197C2ADC38D400CA7D09 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87197B2ADC38D400CA7D09 /* WebView.swift */; };
+		5C9A7DDE2ADE8BB500811E03 /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9A7DDD2ADE8BB500811E03 /* SwiftfulLoadingIndicators */; };
 		5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */; };
 		5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A182AD065CE00634047 /* ContentView.swift */; };
 		5CAB3A1B2AD065D000634047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB3A1A2AD065D000634047 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 			files = (
 				5C8719692ADB0C4300CA7D09 /* SwiftSoup in Frameworks */,
 				5C87197A2ADC2A5300CA7D09 /* CachedAsyncImage in Frameworks */,
+				5C9A7DDE2ADE8BB500811E03 /* SwiftfulLoadingIndicators in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +155,7 @@
 			packageProductDependencies = (
 				5C8719682ADB0C4300CA7D09 /* SwiftSoup */,
 				5C8719792ADC2A5300CA7D09 /* CachedAsyncImage */,
+				5C9A7DDD2ADE8BB500811E03 /* SwiftfulLoadingIndicators */,
 			);
 			productName = "Fisherman's Keeper";
 			productReference = 5CAB3A132AD065CE00634047 /* Fisherman's Keeper.app */;
@@ -185,6 +188,7 @@
 			packageReferences = (
 				5C8719672ADB0C4300CA7D09 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				5C8719782ADC2A5300CA7D09 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				5C9A7DDC2ADE8BB500811E03 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
 			);
 			productRefGroup = 5CAB3A142AD065CE00634047 /* Products */;
 			projectDirPath = "";
@@ -448,6 +452,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		5C9A7DDC2ADE8BB500811E03 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -460,6 +472,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C8719782ADC2A5300CA7D09 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
+		};
+		5C9A7DDD2ADE8BB500811E03 /* SwiftfulLoadingIndicators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9A7DDC2ADE8BB500811E03 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
+			productName = SwiftfulLoadingIndicators;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
