@@ -5,7 +5,6 @@
 //  Created by Aman Bind on 06/10/23.
 //
 
-import SwiftfulLoadingIndicators
 import SwiftUI
 
 struct ContentView: View {
@@ -51,7 +50,6 @@ struct ContentView: View {
                                         .background(Material.regular)
                                 }
                                 .clipShape(RoundedRectangle(cornerRadius: 35))
-                            
                         }
 
                     })
