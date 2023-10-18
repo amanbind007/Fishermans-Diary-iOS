@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var searchText: String = "Fish"
+    @State var searchText: String = ""
 
     @Environment(\.colorScheme) var colorScheme
     @ObservedObject var fishbase = FishbaseSearch()
+    @State private var scrollViewID = UUID()
 
     private let adaptiveColumn = [
         GridItem()
@@ -54,6 +55,7 @@ struct ContentView: View {
 
                     })
                 }
+                .id(self.scrollViewID)
                 .background {
                     let darkBackground = Image("DarkBackground", bundle: Bundle(path: "Assets"))
                         .resizable()
@@ -68,6 +70,7 @@ struct ContentView: View {
             }
             .searchable(text: $searchText, prompt: Text("Enter Fish Name"))
             .onSubmit(of: .search) {
+                scrollViewID = UUID()
                 fishbase.getFish(searchText)
             }
             .onAppear(perform: {

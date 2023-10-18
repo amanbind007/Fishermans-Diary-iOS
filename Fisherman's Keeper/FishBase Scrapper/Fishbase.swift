@@ -8,26 +8,17 @@
 import Foundation
 import SwiftSoup
 
-struct Fish {
-    let commonEnglishName: String?
-    let scientificName: String?
-    let familyName: String?
-    let imageURL: String?
-    let articleURL: String?
-}
-
 class FishbaseSearch: ObservableObject {
     @Published var fishes: [Fish] = []
     
     let baseURL = "https://www.fishbase.org.au"
     @Published var pageNumberStart: Int = 1
     @Published var pageNumberStop: Int = 1
-    @Published var isLoading: Bool = false
     
     func getFish(_ searchTerm: String) {
         pageNumberStart = 1
         
-        let url = URL(string: baseURL+"/v4/search?&q=\(searchTerm)&page=\(pageNumberStart)")
+        let url = URL(string: baseURL+"/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(pageNumberStart)")
         
         do {
             let html: String = try String(contentsOf: url!)
@@ -72,8 +63,6 @@ class FishbaseSearch: ObservableObject {
     }
     
     func getMoreFish(_ searchTerm: String) {
-        // isLoading = true
-        
         if pageNumberStart < pageNumberStop {
             pageNumberStart += 1
         }
@@ -81,7 +70,7 @@ class FishbaseSearch: ObservableObject {
             return
         }
         
-        let url = URL(string: baseURL+"/v4/search?&q=\(searchTerm)&page=\(pageNumberStart)")
+        let url = URL(string: baseURL+"/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(pageNumberStart)")
         
         do {
             let html = try String(contentsOf: url!)

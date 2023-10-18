@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */; };
+		5C3F28E92AE002D20028DA73 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28E82AE002D20028DA73 /* Fish.swift */; };
 		5C8719692ADB0C4300CA7D09 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8719682ADB0C4300CA7D09 /* SwiftSoup */; };
 		5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */; };
 		5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFishListView.swift; sourceTree = "<group>"; };
+		5C3F28E82AE002D20028DA73 /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fishbase.swift; sourceTree = "<group>"; };
 		5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPreviewProvider.swift; sourceTree = "<group>"; };
 		5C8719722ADC1FCE00CA7D09 /* Fisherman-s-Keeper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fisherman-s-Keeper-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -51,6 +53,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C3F28E52AE001FE0028DA73 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		5C87196A2ADB0C5700CA7D09 /* FishBase Scrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +96,7 @@
 		5CAB3A152AD065CE00634047 /* Fisherman's Keeper */ = {
 			isa = PBXGroup;
 			children = (
+				5C3F28E52AE001FE0028DA73 /* Utilities */,
 				5C8719722ADC1FCE00CA7D09 /* Fisherman-s-Keeper-Info.plist */,
 				5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */,
 				5C87196A2ADB0C5700CA7D09 /* FishBase Scrapper */,
@@ -123,6 +133,7 @@
 		5CF259A52AD4610A006364D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5C3F28E82AE002D20028DA73 /* Fish.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 				5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */,
 				5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */,
 				5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */,
+				5C3F28E92AE002D20028DA73 /* Fish.swift in Sources */,
 				5C87197C2ADC38D400CA7D09 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
