@@ -11,6 +11,8 @@ import SwiftUI
 struct FishCardView: View {
     let fish: Fish
 
+    @State var isAddFishPresented: Bool = false
+
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
@@ -52,10 +54,9 @@ struct FishCardView: View {
             .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .shadow(color: .black, radius: 10)
-            
-            
+
             Button(action: {
-                
+                isAddFishPresented.toggle()
             }, label: {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
@@ -63,12 +64,14 @@ struct FishCardView: View {
                     .padding(2)
                     .background(Color.white)
                     .clipShape(Circle())
-                
+
             })
             .offset(CGSize(width: 150.0, height: -105.0))
-            
-            
         }
+        .sheet(isPresented: $isAddFishPresented, content: {
+            AddNewFishView(fish: fish)
+
+        })
         .padding(.top, 8)
     }
 }

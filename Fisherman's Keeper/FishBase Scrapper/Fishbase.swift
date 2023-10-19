@@ -9,16 +9,19 @@ import Foundation
 import SwiftSoup
 
 class FishbaseSearch: ObservableObject {
-    @Published var fishes: [Fish] = []
     
     let baseURL = "https://www.fishbase.org.au"
+    
+    @Published var fishes: [Fish] = []
     @Published var pageNumberStart: Int = 1
     @Published var pageNumberStop: Int = 1
+    
     
     func getFish(_ searchTerm: String) {
         pageNumberStart = 1
         
         let url = URL(string: baseURL+"/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(pageNumberStart)")
+        
         
         do {
             let html: String = try String(contentsOf: url!)
@@ -72,6 +75,7 @@ class FishbaseSearch: ObservableObject {
         
         let url = URL(string: baseURL+"/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(pageNumberStart)")
         
+        
         do {
             let html = try String(contentsOf: url!)
             let doc: Document = try SwiftSoup.parse(html)
@@ -89,7 +93,6 @@ class FishbaseSearch: ObservableObject {
                 
             print("Page number Stop : \(pageNumberStop)")
                 
-            //            fishes.removeAll()
                 
             for item in list {
                 let commonEnglishName = try item.select("div.common").text()
@@ -98,7 +101,6 @@ class FishbaseSearch: ObservableObject {
                 let imageURL = try item.select("img").attr("src")
                 let articleURL = try item.attr("class", "science").attr("href")
                     
-                print(commonEnglishName)
                     
                 let fish = Fish(commonEnglishName: commonEnglishName, scientificName: scientificName, familyName: familyName, imageURL: baseURL+imageURL, articleURL: articleURL)
                     
@@ -112,7 +114,6 @@ class FishbaseSearch: ObservableObject {
         catch {
             print(error)
         }
-        
-        // isLoading = false
+
     }
 }
