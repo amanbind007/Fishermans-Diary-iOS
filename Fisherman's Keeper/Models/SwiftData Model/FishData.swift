@@ -11,8 +11,7 @@ import SwiftUI
 
 @Model
 final class FishData {
-    
-    @Attribute(.unique) var scientificNAme: String
+    @Attribute(.unique) var scientificName: String
     var commonName: String?
     var familyName: String
     var note: String?
@@ -21,10 +20,10 @@ final class FishData {
     var hasTitle: Bool = false
     var articleURL: String
     @Attribute(.externalStorage) var imageData: Data?
-    var dateTime: Date
+    var dateTime: Double
     
-    init(scientificNAme: String, commonName: String? = nil, familyName: String, note: String? = nil, title: String? = nil, count: Int? = nil, hasTitle: Bool, articleURL: String, imageData: Data, dateTime: Date) {
-        self.scientificNAme = scientificNAme
+    init(scientificName: String, commonName: String? = nil, familyName: String, note: String? = nil, title: String? = nil, count: Int? = nil, hasTitle: Bool, articleURL: String, imageData: Data? = nil, dateTime: Double = Date().timeIntervalSince1970) {
+        self.scientificName = scientificName
         self.commonName = commonName
         self.familyName = familyName
         self.note = note
@@ -35,6 +34,4 @@ final class FishData {
         self.imageData = imageData
         self.dateTime = dateTime
     }
-    
-    
 }
