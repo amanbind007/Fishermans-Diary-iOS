@@ -16,22 +16,26 @@ final class FishData {
     var familyName: String
     var note: String?
     var title: String?
-    var count: Int?
-    var hasTitle: Bool = false
+    var count: Int
     var articleURL: String
-    @Attribute(.externalStorage) var imageData: Data?
+    @Attribute(.externalStorage) var imageURL: String
     var dateTime: Double
+    var hasTitle: Bool
+    var hasNote: Bool
+    var hasCount: Bool
     
-    init(scientificName: String, commonName: String? = nil, familyName: String, note: String? = nil, title: String? = nil, count: Int? = nil, hasTitle: Bool, articleURL: String, imageData: Data? = nil, dateTime: Double = Date().timeIntervalSince1970) {
+    init(scientificName: String, commonName: String? = nil, familyName: String, note: String? = nil, title: String? = nil, count: Int, articleURL: String, imageURL: String, dateTime: Double, hasTitle: Bool, hasNote: Bool, hasCount: Bool) {
         self.scientificName = scientificName
         self.commonName = commonName
         self.familyName = familyName
         self.note = note
         self.title = title
         self.count = count
-        self.hasTitle = hasTitle
         self.articleURL = articleURL
-        self.imageData = imageData
+        self.imageURL = imageURL
         self.dateTime = dateTime
+        self.hasTitle = hasTitle
+        self.hasNote = hasNote
+        self.hasCount = hasCount
     }
 }

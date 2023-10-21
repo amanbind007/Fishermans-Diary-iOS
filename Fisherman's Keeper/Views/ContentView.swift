@@ -25,8 +25,8 @@ struct ContentView: View {
                     LazyVGrid(columns: adaptiveColumn, content: {
                         ForEach(fishbase.fishes, id: \.scientificName) { fish in
                             NavigationLink {
-                                WebView(url: URL(string: fish.articleURL!)!)
-                                    .navigationTitle(fish.scientificName!)
+                                WebView(url: URL(string: fish.articleURL)!)
+                                    .navigationTitle(fish.scientificName)
 
                             } label: {
                                 FishCardView(fish: fish)

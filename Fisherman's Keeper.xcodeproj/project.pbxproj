@@ -19,6 +19,8 @@
 		5C8719772ADC22F600CA7D09 /* PTSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C8719762ADC22F600CA7D09 /* PTSerif-Regular.ttf */; };
 		5C87197A2ADC2A5300CA7D09 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8719792ADC2A5300CA7D09 /* CachedAsyncImage */; };
 		5C87197C2ADC38D400CA7D09 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87197B2ADC38D400CA7D09 /* WebView.swift */; };
+		5C9311802AE43B2700D421CB /* AddNewFishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93117F2AE43B2700D421CB /* AddNewFishViewModel.swift */; };
+		5C9311832AE4466900D421CB /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9311822AE4466900D421CB /* Binding+Extension.swift */; };
 		5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */; };
 		5CAB3A192AD065CE00634047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB3A182AD065CE00634047 /* ContentView.swift */; };
 		5CAB3A1B2AD065D000634047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB3A1A2AD065D000634047 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		5C8719742ADC21EB00CA7D09 /* PTSerif-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSerif-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5C8719762ADC22F600CA7D09 /* PTSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSerif-Regular.ttf"; sourceTree = "<group>"; };
 		5C87197B2ADC38D400CA7D09 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		5C93117F2AE43B2700D421CB /* AddNewFishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFishViewModel.swift; sourceTree = "<group>"; };
+		5C9311822AE4466900D421CB /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		5CAB3A132AD065CE00634047 /* Fisherman's Keeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fisherman's Keeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fisherman_s_KeeperApp.swift; sourceTree = "<group>"; };
 		5CAB3A182AD065CE00634047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5C9311812AE4464800D421CB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C9311822AE4466900D421CB /* Binding+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5CAB3A0A2AD065CE00634047 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 		5CAB3A152AD065CE00634047 /* Fisherman's Keeper */ = {
 			isa = PBXGroup;
 			children = (
+				5C9311812AE4464800D421CB /* Extensions */,
 				5C3F28E52AE001FE0028DA73 /* Utilities */,
 				5C8719722ADC1FCE00CA7D09 /* Fisherman-s-Keeper-Info.plist */,
 				5CAB3A162AD065CE00634047 /* Fisherman_s_KeeperApp.swift */,
@@ -158,6 +171,7 @@
 		5CF259A82AD5AB6A006364D0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5C93117F2AE43B2700D421CB /* AddNewFishViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -247,9 +261,11 @@
 				5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */,
 				5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */,
 				5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */,
+				5C9311802AE43B2700D421CB /* AddNewFishViewModel.swift in Sources */,
 				5C3F28F22AE197CD0028DA73 /* AddNewFishView.swift in Sources */,
 				5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */,
 				5C3F28E92AE002D20028DA73 /* Fish.swift in Sources */,
+				5C9311832AE4466900D421CB /* Binding+Extension.swift in Sources */,
 				5C3F28F02AE158050028DA73 /* FishData.swift in Sources */,
 				5C87197C2ADC38D400CA7D09 /* WebView.swift in Sources */,
 				5C3F28ED2AE142BA0028DA73 /* HTMLScraperUtility.swift in Sources */,

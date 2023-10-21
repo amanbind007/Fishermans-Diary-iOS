@@ -13,23 +13,21 @@ struct AddNewFishView: View {
     var fish: Fish
     
     @Environment(\.dismiss) var dismiss
-    @State var hasCustomTitle: Bool = false
-    @State var hasNote: Bool = false
-    @State var customTitle: String = ""
-    @State var note: String = ""
-    @State var hasFishCount: Bool = false
-    @State var fishCount: Int = 0
+    
+    @ObservedObject var viewModel = AddNewFishViewModel()
+    
 
     var body: some View {
         NavigationStack {
             Form(content: {
                 Section {
                     HStack(alignment: .top) {
-                        Text(fish.scientificName!)
+                        Text(fish.scientificName)
                             .frame(alignment: .leading)
                         Spacer()
                         
-                        CachedAsyncImage(url: URL(string: fish.imageURL!)) { image in
+                        CachedAsyncImage(url: URL(string: fish.imageURL)) { image in
+                            
                             image
                                 .resizable()
                                 .cornerRadius(10)
@@ -49,7 +47,7 @@ struct AddNewFishView: View {
                 
                 Section {
                     HStack {
-                        Text(fish.scientificName!)
+                        Text(fish.scientificName)
                             .font(Font.custom("PTSerif-BoldItalic", size: 20))
                     }
                     if let commonName = fish.commonEnglishName {
@@ -59,40 +57,45 @@ struct AddNewFishView: View {
                         }
                     }
                     HStack {
-                        Text(fish.familyName!)
+                        Text(fish.familyName)
                             .font(Font.custom("PTSerif-Regular", size: 15))
                     }
                 } header: {
                     Text("Scientific Name, Common English Name, Family Name")
                         .font(.caption)
                 }
+
                 
                 Section {
-                    HStack {
-                        Toggle("Add Custom Title", isOn: $hasCustomTitle)
-                    }
-                    if hasCustomTitle {
-                        HStack {
-                            TextField("Your Title", text: $customTitle)
-                        }
-                    }
                     
                     HStack {
-                        Toggle("Add Note", isOn: $hasNote)
+                        Toggle("Add Custom Title", isOn: $viewModel.hasCustomTitle)
                     }
-                    if hasNote {
+                    
+                    if viewModel.hasCustomTitle {
                         HStack {
-                            TextField("Enter Note", text: $note)
+                            TextField("Title", text: $viewModel.customTitle ?? "")
                                 .lineLimit(3)
                         }
                     }
                     
                     HStack {
-                        Toggle("Add Fish Count", isOn: $hasFishCount)
+                        Toggle("Add Note", isOn: $viewModel.hasNote)
                     }
-                    if hasFishCount {
+                    if viewModel.hasNote {
                         HStack {
-                            Stepper("Fish Count: \(fishCount)", value: $fishCount, in: 0 ... Int.max)
+                            TextField("Enter Note", text: $viewModel.note ?? "")
+                                .lineLimit(3)
+                        }
+                    }
+                    
+                    HStack {
+                        Toggle("Add Fish Count", isOn: $viewModel.hasFishCount)
+                    }
+                    
+                    if viewModel.hasFishCount {
+                        HStack {
+                            Stepper("Fish Count: \(viewModel.fishCount)", value: $viewModel.fishCount, in: 0 ... Int.max)
                         }
                     }
                         
@@ -102,7 +105,7 @@ struct AddNewFishView: View {
                 }
                 
             })
-            .navigationTitle(fish.scientificName!)
+            .navigationTitle(fish.scientificName)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {

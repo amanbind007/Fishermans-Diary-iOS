@@ -9,10 +9,10 @@ import Foundation
 
 struct Fish {
     let commonEnglishName: String?
-    let scientificName: String?
-    let familyName: String?
-    let imageURL: String?
-    let articleURL: String?
+    let scientificName: String
+    let familyName: String
+    let imageURL: String
+    let articleURL: String
 }
 
 

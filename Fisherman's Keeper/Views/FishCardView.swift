@@ -16,7 +16,7 @@ struct FishCardView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                CachedAsyncImage(url: URL(string: fish.imageURL ?? "")) { image in
+                CachedAsyncImage(url: URL(string: fish.imageURL)) { image in
                     image
                         .resizable()
                         .frame(width: UIScreen.main.bounds.width-35, height: 200)
@@ -30,7 +30,7 @@ struct FishCardView: View {
                 }
 
                 HStack {
-                    Text(fish.scientificName ?? "")
+                    Text(fish.scientificName)
                         .font(Font.custom("PTSerif-BoldItalic", size: 20))
                         .foregroundColor(.fishCardText)
 
@@ -43,7 +43,7 @@ struct FishCardView: View {
                         .foregroundColor(.fishCardText)
 
                     Spacer()
-                    Text(fish.familyName ?? "")
+                    Text(fish.familyName)
                         .font(Font.custom("PTSerif-Regular", size: 15))
                         .foregroundColor(.primary)
                         .opacity(1.0)
