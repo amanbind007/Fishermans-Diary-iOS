@@ -16,7 +16,22 @@ struct AddNewFishView: View {
     
     @ObservedObject var viewModel = AddNewFishViewModel()
     
+    var isFormValid: Bool {
+        if viewModel.hasCustomTitle {
+            guard let customTitle = viewModel.customTitle, !customTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
+                    return false
+                }
+            }
 
+        if viewModel.hasNote {
+                guard let note = viewModel.note, !note.trimmingCharacters(in: .whitespaces).isEmpty else {
+                    return false
+                }
+            }
+
+            return true
+        }
+    
     var body: some View {
         NavigationStack {
             Form(content: {
@@ -65,9 +80,7 @@ struct AddNewFishView: View {
                         .font(.caption)
                 }
 
-                
                 Section {
-                    
                     HStack {
                         Toggle("Add Custom Title", isOn: $viewModel.hasCustomTitle)
                     }
@@ -117,6 +130,7 @@ struct AddNewFishView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
+                    // this button should be only be enabled when the form is valid else it should be disabled
                     Button(action: {
                         // Add Save Functionality
                         
@@ -125,6 +139,7 @@ struct AddNewFishView: View {
                         Text("Save")
                         
                     })
+                    .disabled(!isFormValid)
                 }
             })
         }
