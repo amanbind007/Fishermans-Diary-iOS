@@ -29,7 +29,7 @@ struct ContentView: View {
                                     .navigationTitle(fish.scientificName)
 
                             } label: {
-                                FishCardView(fish: fish)
+                                FishCardView(fish: fish, fishData: nil)
                                     .padding(.horizontal)
 
                             }.buttonStyle(.plain)

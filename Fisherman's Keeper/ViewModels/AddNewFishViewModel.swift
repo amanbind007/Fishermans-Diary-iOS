@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 class AddNewFishViewModel: ObservableObject {
     @Published var hasCustomTitle: Bool = false
@@ -15,16 +16,23 @@ class AddNewFishViewModel: ObservableObject {
     @Published var hasFishCount: Bool = false
     @Published var fishCount: Int = 0
 
-    func saveFish(fish: Fish) {
-        hasCustomTitle = customTitle != nil
-        hasNote = note != nil
+    func saveFish(fish: Fish, context: ModelContext) {
+        if !hasCustomTitle {
+            customTitle = nil
+        }
+        if !hasNote {
+            note = nil
+        }
 
         let fishData = FishData(scientificName: fish.scientificName, commonName: fish.commonEnglishName, familyName: fish.familyName, note: note, title: customTitle, count: fishCount, articleURL: fish.articleURL, imageURL: fish.imageURL, dateTime: Date().timeIntervalSince1970, hasTitle: hasCustomTitle, hasNote: hasNote, hasCount: hasFishCount)
 
+        context.insert(fishData)
+
+        print()
         do {
-            try fishData.modelContext?.save()
-        }
-        catch {
+            try context.save()
+            print("added to persistence storage")
+        } catch {
             print(error.localizedDescription)
         }
     }

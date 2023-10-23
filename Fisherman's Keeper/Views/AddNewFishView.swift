@@ -12,6 +12,8 @@ import SwiftUI
 struct AddNewFishView: View {
     var fish: Fish
     
+    @Environment(\.modelContext) private var context
+    
     @Environment(\.dismiss) var dismiss
     
     @ObservedObject var viewModel = AddNewFishViewModel()
@@ -132,7 +134,7 @@ struct AddNewFishView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     // this button should be only be enabled when the form is valid else it should be disabled
                     Button(action: {
-                        // Add Save Functionality
+                        viewModel.saveFish(fish: fish, context: context)
                         
                         dismiss()
                     }, label: {

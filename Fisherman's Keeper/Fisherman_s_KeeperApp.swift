@@ -5,6 +5,7 @@
 //  Created by Aman Bind on 06/10/23.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct Fisherman_s_KeeperApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [FishData.self])
     }
 }

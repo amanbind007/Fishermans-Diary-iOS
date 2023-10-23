@@ -11,7 +11,11 @@ import SwiftUI
 struct FishCardView: View {
     let fish: Fish
 
+    let fishData: FishData?
+
+    @State var isMyList: Bool = true
     @State var isAddFishPresented: Bool = false
+    @State var fishCount: Int = 0
 
     var body: some View {
         ZStack {
@@ -29,17 +33,25 @@ struct FishCardView: View {
                         .cornerRadius(10)
                 }
 
+                if isMyList {
+                    VStack(alignment: .leading) {
+                        Text("Custom Tile will be here ")
+                            .font(Font.custom("PTSerif-Bold", size: 20))
+                            .foregroundColor(.fishCardText)
+                        Divider()
+                    }
+                    .padding(.horizontal, 7)
+                }
+
                 HStack {
                     Text(fish.scientificName)
-                        .font(Font.custom("PTSerif-BoldItalic", size: 20))
+                        .font(Font.custom("PTSerif-BoldItalic", size: 19))
                         .foregroundColor(.fishCardText)
-
-                    Spacer()
                 }
                 .padding(.horizontal, 7)
                 HStack {
                     Text(fish.commonEnglishName ?? "")
-                        .font(Font.custom("PTSerif-Regular", size: 18))
+                        .font(Font.custom("PTSerif-Regular", size: 17))
                         .foregroundColor(.fishCardText)
 
                     Spacer()
@@ -49,6 +61,14 @@ struct FishCardView: View {
                         .opacity(1.0)
                 }
                 .padding(.horizontal, 7)
+
+                if isMyList {
+                    Divider()
+                    HStack {
+                        Stepper("Fish Count: \(fishCount)", value: $fishCount, in: 0 ... Int.max)
+                    }
+                    .padding(.horizontal, 7)
+                }
             }
             .padding(5)
             .background(.thinMaterial)
@@ -58,7 +78,7 @@ struct FishCardView: View {
             Button(action: {
                 isAddFishPresented.toggle()
             }, label: {
-                Image(systemName: "plus.circle.fill")
+                Image(systemName: isMyList ? "square.and.pencil.circle.fill" : "plus.circle.fill")
                     .resizable()
                     .frame(width: 30, height: 30)
                     .padding(2)
@@ -77,5 +97,5 @@ struct FishCardView: View {
 }
 
 #Preview {
-    FishCardView(fish: FishPreviewProvider.fish)
+    FishCardView(fish: FishPreviewProvider.fish, fishData: nil)
 }

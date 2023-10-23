@@ -34,11 +34,11 @@ class FishbaseSearch: ObservableObject {
             
             let pageStop = try body.select("li.last").select("a").attr("title").replacingOccurrences(of: "Page ", with: "")
             
-            print("Page Stop : \(pageStop)")
+//            print("Page Stop : \(pageStop)")
             
             pageNumberStop = Int(pageStop) ?? 1
             
-            print("Page number Stop : \(pageNumberStop)")
+//            print("Page number Stop : \(pageNumberStop)")
             
             fishes.removeAll()
             
@@ -49,7 +49,7 @@ class FishbaseSearch: ObservableObject {
                 let imageURL = try item.select("img").attr("src")
                 let articleURL = try item.attr("class", "science").attr("href")
                 
-                print(commonEnglishName)
+//                print(commonEnglishName)
                 
                 let fish = Fish(commonEnglishName: commonEnglishName, scientificName: scientificName, familyName: familyName, imageURL: baseURL+imageURL, articleURL: articleURL)
                 
@@ -87,11 +87,11 @@ class FishbaseSearch: ObservableObject {
                 
             let pageStop = try body.select("li.last").select("a").attr("title").replacingOccurrences(of: "Page ", with: "")
                 
-            print("Page Stop : \(pageStop)")
+//            print("Page Stop : \(pageStop)")
                 
             pageNumberStop = Int(pageStop) ?? 1
                 
-            print("Page number Stop : \(pageNumberStop)")
+//            print("Page number Stop : \(pageNumberStop)")
                 
                 
             for item in list {

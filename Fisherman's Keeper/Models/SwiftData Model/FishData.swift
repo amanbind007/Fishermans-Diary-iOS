@@ -18,7 +18,7 @@ final class FishData {
     var title: String?
     var count: Int
     var articleURL: String
-    @Attribute(.externalStorage) var imageURL: String
+    var imageURL: String
     var dateTime: Double
     var hasTitle: Bool
     var hasNote: Bool
