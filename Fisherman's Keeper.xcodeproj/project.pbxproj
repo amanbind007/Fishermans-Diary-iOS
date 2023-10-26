@@ -10,6 +10,8 @@
 		5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */; };
 		5C06A4E62AE6C1E0005E0EC9 /* PTSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C06A4E52AE6C1E0005E0EC9 /* PTSerif-Bold.ttf */; };
 		5C06A4E82AE6C9D4005E0EC9 /* FishPreviewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06A4E72AE6C9D4005E0EC9 /* FishPreviewDataProvider.swift */; };
+		5C06A4EA2AEA9806005E0EC9 /* UpdateFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06A4E92AEA9806005E0EC9 /* UpdateFishView.swift */; };
+		5C06A4EC2AEA98CC005E0EC9 /* UpdateFishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06A4EB2AEA98CC005E0EC9 /* UpdateFishViewModel.swift */; };
 		5C3F28E92AE002D20028DA73 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28E82AE002D20028DA73 /* Fish.swift */; };
 		5C3F28ED2AE142BA0028DA73 /* HTMLScraperUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28EC2AE142BA0028DA73 /* HTMLScraperUtility.swift */; };
 		5C3F28F02AE158050028DA73 /* FishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28EF2AE158050028DA73 /* FishData.swift */; };
@@ -34,6 +36,8 @@
 		5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFishListView.swift; sourceTree = "<group>"; };
 		5C06A4E52AE6C1E0005E0EC9 /* PTSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSerif-Bold.ttf"; sourceTree = "<group>"; };
 		5C06A4E72AE6C9D4005E0EC9 /* FishPreviewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPreviewDataProvider.swift; sourceTree = "<group>"; };
+		5C06A4E92AEA9806005E0EC9 /* UpdateFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFishView.swift; sourceTree = "<group>"; };
+		5C06A4EB2AEA98CC005E0EC9 /* UpdateFishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFishViewModel.swift; sourceTree = "<group>"; };
 		5C3F28E82AE002D20028DA73 /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		5C3F28EC2AE142BA0028DA73 /* HTMLScraperUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLScraperUtility.swift; sourceTree = "<group>"; };
 		5C3F28EF2AE158050028DA73 /* FishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishData.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			children = (
 				5CAB3A182AD065CE00634047 /* ContentView.swift */,
 				5C3F28F12AE197CD0028DA73 /* AddNewFishView.swift */,
+				5C06A4E92AEA9806005E0EC9 /* UpdateFishView.swift */,
 				5CAB3A252AD0664000634047 /* FishCardView.swift */,
 				5C00F9022AD1C66D0049CAD1 /* MyFishListView.swift */,
 				5C87197B2ADC38D400CA7D09 /* WebView.swift */,
@@ -178,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				5C93117F2AE43B2700D421CB /* AddNewFishViewModel.swift */,
+				5C06A4EB2AEA98CC005E0EC9 /* UpdateFishViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -268,8 +274,10 @@
 				5C00F9032AD1C66D0049CAD1 /* MyFishListView.swift in Sources */,
 				5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */,
 				5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */,
+				5C06A4EC2AEA98CC005E0EC9 /* UpdateFishViewModel.swift in Sources */,
 				5C06A4E82AE6C9D4005E0EC9 /* FishPreviewDataProvider.swift in Sources */,
 				5C9311802AE43B2700D421CB /* AddNewFishViewModel.swift in Sources */,
+				5C06A4EA2AEA9806005E0EC9 /* UpdateFishView.swift in Sources */,
 				5C3F28F22AE197CD0028DA73 /* AddNewFishView.swift in Sources */,
 				5CAB3A172AD065CE00634047 /* Fisherman_s_KeeperApp.swift in Sources */,
 				5C3F28E92AE002D20028DA73 /* Fish.swift in Sources */,
