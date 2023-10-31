@@ -21,7 +21,7 @@ struct MyFishListItemView: View {
         self.fishData = fishData
     }
     
-    func updateFishCount(context: ModelContext){
+    func updateFishCount(context: ModelContext) {
         fishData.count = fishCount
         
         context.insert(fishData)
@@ -58,6 +58,12 @@ struct MyFishListItemView: View {
                         .frame(height: 170)
                         .cornerRadius(10)
                 }
+                .overlay {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2.0)
+                        .foregroundStyle(Color.fishCardText)
+                        
+                }
                 
                 Button(action: {
                     isUpdateFishPresented.toggle()
@@ -73,6 +79,7 @@ struct MyFishListItemView: View {
                 .offset(CGSize(width: 133.0, height: -63.0))
             }
             .offset(CGSize(width: 0.0, height: -5.0))
+            
             
             HStack {
                 Text(fishData.scientificName)
@@ -92,8 +99,21 @@ struct MyFishListItemView: View {
                     .foregroundColor(.primary)
                     .opacity(1.0)
             }
+            if let note = fishData.note {
+                Divider()
+                HStack {
+                    Text("NOTE: \(note)")
+                        .font(Font.custom("PTSerif-Regular", size: 15))
+                        .foregroundColor(.primary)
+                    
+                    Spacer()
+                }
+                Divider()
+            }
             
-            Stepper("Fish Count: \(fishCount)", value: $fishCount, in: 0 ... Int.max)
+            if fishData.hasCount {
+                Stepper("Fish Count: \(fishCount)", value: $fishCount, in: 0 ... Int.max)
+            }
         }
         .sheet(isPresented: $isUpdateFishPresented, content: {
             UpdateFishView(fishData: fishData)

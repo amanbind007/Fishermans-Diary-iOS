@@ -25,7 +25,6 @@ struct MyFishListView: View {
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
                                 context.delete(fish)
-                                //selectedThing = nil
                                 do {
                                     try context.save()
                                 } catch {
