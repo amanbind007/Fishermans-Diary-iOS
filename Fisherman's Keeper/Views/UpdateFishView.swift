@@ -103,12 +103,12 @@ struct UpdateFishView: View {
                     HStack {
                         Toggle("Add Note", isOn: $viewModel.hasNote)
                     }
-//                    if viewModel.hasNote {
-//                        HStack {
-//                            TextField("Enter Note", text: $viewModel.note ?? "")
-//                                .lineLimit(3)
-//                        }
-//                    }
+                    if viewModel.hasNote {
+                        HStack {
+                            TextField("Enter Note", text: $viewModel.note ?? "")
+                                .lineLimit(3)
+                        }
+                    }
                     
                     HStack {
                         Toggle("Add Fish Count", isOn: $viewModel.hasFishCount)
