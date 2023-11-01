@@ -13,6 +13,8 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @ObservedObject var fishbase = FishbaseSearch()
     @State private var scrollViewID = UUID()
+    
+    @ObservedObject var pageConfig = PageConfig()
 
     private let adaptiveColumn = [
         GridItem()
@@ -35,13 +37,21 @@ struct ContentView: View {
                             }.buttonStyle(.plain)
                         }
 
-                        if fishbase.pageNumberStart < fishbase.pageNumberStop {
+                        if pageConfig.pageNumberStart < pageConfig.pageNumberStop {
+                            
                             Color.clear
                                 .onAppear {
+                                    
+                                    // Here I want add more fishes to the list
+                                    
                                     fishbase.getMoreFish(searchText)
                                 }
 
                         } else {
+                            
+                        
+                            
+                            Spacer()
                             Text("No More Results")
                                 .font(.headline)
                                 .foregroundStyle(Color.white)
@@ -51,6 +61,7 @@ struct ContentView: View {
                                         .background(Material.regular)
                                 }
                                 .clipShape(RoundedRectangle(cornerRadius: 35))
+                            Spacer()
                         }
 
                     })
@@ -69,6 +80,7 @@ struct ContentView: View {
                 .navigationTitle("Search Fish")
             }
             .searchable(text: $searchText, prompt: Text("Enter Fish Name"))
+            .autocorrectionDisabled()
             .onSubmit(of: .search) {
                 scrollViewID = UUID()
                 fishbase.getFish(searchText)

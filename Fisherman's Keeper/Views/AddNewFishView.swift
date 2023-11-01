@@ -91,6 +91,7 @@ struct AddNewFishView: View {
                         HStack {
                             TextField("Title", text: $viewModel.customTitle ?? "")
                                 .lineLimit(3)
+                                .autocorrectionDisabled()
                         }
                     }
                     
@@ -101,6 +102,7 @@ struct AddNewFishView: View {
                         HStack {
                             TextField("Enter Note", text: $viewModel.note ?? "")
                                 .lineLimit(3)
+                                .autocorrectionDisabled()
                         }
                     }
                     

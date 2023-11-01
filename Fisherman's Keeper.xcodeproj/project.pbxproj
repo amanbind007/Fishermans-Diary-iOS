@@ -17,6 +17,8 @@
 		5C3F28ED2AE142BA0028DA73 /* HTMLScraperUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28EC2AE142BA0028DA73 /* HTMLScraperUtility.swift */; };
 		5C3F28F02AE158050028DA73 /* FishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28EF2AE158050028DA73 /* FishData.swift */; };
 		5C3F28F22AE197CD0028DA73 /* AddNewFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28F12AE197CD0028DA73 /* AddNewFishView.swift */; };
+		5C7C62162AF2441100EB0738 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C62152AF2441100EB0738 /* Constants.swift */; };
+		5C7C62182AF26F1E00EB0738 /* PageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C62172AF26F1E00EB0738 /* PageConfig.swift */; };
 		5C8719692ADB0C4300CA7D09 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8719682ADB0C4300CA7D09 /* SwiftSoup */; };
 		5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */; };
 		5C87196E2ADB11FE00CA7D09 /* FishPreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */; };
@@ -44,6 +46,8 @@
 		5C3F28EC2AE142BA0028DA73 /* HTMLScraperUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLScraperUtility.swift; sourceTree = "<group>"; };
 		5C3F28EF2AE158050028DA73 /* FishData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishData.swift; sourceTree = "<group>"; };
 		5C3F28F12AE197CD0028DA73 /* AddNewFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFishView.swift; sourceTree = "<group>"; };
+		5C7C62152AF2441100EB0738 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5C7C62172AF26F1E00EB0738 /* PageConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageConfig.swift; sourceTree = "<group>"; };
 		5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fishbase.swift; sourceTree = "<group>"; };
 		5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPreviewProvider.swift; sourceTree = "<group>"; };
 		5C8719722ADC1FCE00CA7D09 /* Fisherman-s-Keeper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fisherman-s-Keeper-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -77,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				5C3F28EC2AE142BA0028DA73 /* HTMLScraperUtility.swift */,
+				5C7C62152AF2441100EB0738 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */,
+				5C7C62172AF26F1E00EB0738 /* PageConfig.swift */,
 			);
 			path = "FishBase Scrapper";
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 				5C87196C2ADB0C7000CA7D09 /* Fishbase.swift in Sources */,
 				5C06A4EC2AEA98CC005E0EC9 /* UpdateFishViewModel.swift in Sources */,
 				5C06A4E82AE6C9D4005E0EC9 /* FishPreviewDataProvider.swift in Sources */,
+				5C7C62182AF26F1E00EB0738 /* PageConfig.swift in Sources */,
 				5C9311802AE43B2700D421CB /* AddNewFishViewModel.swift in Sources */,
 				5C06A4EA2AEA9806005E0EC9 /* UpdateFishView.swift in Sources */,
 				5C3F28F22AE197CD0028DA73 /* AddNewFishView.swift in Sources */,
@@ -289,6 +296,7 @@
 				5C3F28F02AE158050028DA73 /* FishData.swift in Sources */,
 				5C87197C2ADC38D400CA7D09 /* WebView.swift in Sources */,
 				5C3F28ED2AE142BA0028DA73 /* HTMLScraperUtility.swift in Sources */,
+				5C7C62162AF2441100EB0738 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

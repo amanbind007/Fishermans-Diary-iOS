@@ -62,7 +62,6 @@ struct MyFishListItemView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 2.0)
                         .foregroundStyle(Color.fishCardText)
-                        
                 }
                 
                 Button(action: {
@@ -79,7 +78,6 @@ struct MyFishListItemView: View {
                 .offset(CGSize(width: 133.0, height: -63.0))
             }
             .offset(CGSize(width: 0.0, height: -5.0))
-            
             
             HStack {
                 Text(fishData.scientificName)
