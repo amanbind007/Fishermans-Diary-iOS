@@ -11,10 +11,13 @@ struct ContentView: View {
     @State var searchText: String = ""
 
     @Environment(\.colorScheme) var colorScheme
-    @ObservedObject var fishbase = FishbaseSearch()
+    //@ObservedObject var fishbase = FishbaseSearch()
     @State private var scrollViewID = UUID()
     
-    @ObservedObject var pageConfig = PageConfig()
+    //@ObservedObject var pageConfig = PageConfig()
+    
+    @StateObject var pageConfig = PageConfig()
+    @StateObject var fishbase = FishbaseSearch()
 
     private let adaptiveColumn = [
         GridItem()
@@ -37,13 +40,13 @@ struct ContentView: View {
                             }.buttonStyle(.plain)
                         }
 
-                        if pageConfig.pageNumberStart < pageConfig.pageNumberStop {
+                        // Here I want to load more  fishes
+                        if pageConfig.canLoadMore() {
                             
                             Color.clear
                                 .onAppear {
-                                    
-                                    // Here I want add more fishes to the list
-                                    
+                                    print("ContentView: \(pageConfig.pageNumberStart)")
+                                    print("ContentView: \(pageConfig.pageNumberStop)")
                                     fishbase.getMoreFish(searchText)
                                 }
 
@@ -86,6 +89,7 @@ struct ContentView: View {
                 fishbase.getFish(searchText)
             }
             .onAppear(perform: {
+                fishbase.pageConfig = pageConfig
                 fishbase.getFish(searchText)
             })
             .tabItem {

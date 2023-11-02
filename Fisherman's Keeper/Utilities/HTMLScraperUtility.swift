@@ -12,15 +12,18 @@ import SwiftUI
 
 class HTMLScraperUtility {
     
-    @ObservedObject var pageConfig = PageConfig()
-
+    var pageConfig : PageConfig
+    
+    init(pageConfig: PageConfig) {
+        self.pageConfig = pageConfig
+    }
+    
     func scrapArticle(from data: Data) -> Future<[Fish], Never> {
         Future { [self] promise in
             let html = String(data: data, encoding: .utf8)!
             var fishes = [Fish]()
             
             do {
-                let html = String(data: data, encoding: .utf8)!
                 let doc: Document = try SwiftSoup.parse(html)
                 guard let body = doc.body() else { return }
                 
@@ -30,18 +33,13 @@ class HTMLScraperUtility {
                 
                 let pageStop = try body.select("li.last").select("a").attr("title").replacingOccurrences(of: "Page ", with: "")
                 
-                //            print("Page Stop : \(pageStop)")
+
                 
-                //self.pageNumberStop = Int(pageStop) ?? 1
-                pageConfig.pageNumberStop = Int(pageStop) ?? 1
+                DispatchQueue.main.async {
+                    self.pageConfig.updatePageNumberStop(stopPage: Int(pageStop) ?? 1)
+                }
                 
                 print("Page Stop: \(pageConfig.pageNumberStop)")
-                
-                //            print("Page number Stop : \(pageNumberStop)")
-                
-                //                DispatchQueue.main.async {
-                //                    self.fishes.removeAll()
-                //                }
                 
                 for item in list {
                     let commonEnglishName = try item.select("div.common").text()
@@ -50,7 +48,6 @@ class HTMLScraperUtility {
                     let imageURL = try item.select("img").attr("src")
                     let articleURL = try item.attr("class", "science").attr("href")
                     
-                    //                print(commonEnglishName)
                     
                     let fish = Fish(commonEnglishName: commonEnglishName, scientificName: scientificName, familyName: familyName, imageURL: Constants.Endpoints.BASEURL + imageURL, articleURL: articleURL)
                     
