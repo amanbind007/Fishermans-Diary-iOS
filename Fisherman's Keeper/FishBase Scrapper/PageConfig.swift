@@ -7,9 +7,9 @@
 
 import Foundation
 
-class PageConfig: ObservableObject {
-    @Published var pageNumberStart: Int = 1
-    @Published var pageNumberStop: Int = 1
+class PageConfig: ObservableObject{
+    var pageNumberStart: Int = 1
+    var pageNumberStop: Int = 1
 
     func incrementCurrentPage() {
         pageNumberStart += 1

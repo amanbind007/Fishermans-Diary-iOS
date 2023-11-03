@@ -10,13 +10,10 @@ import Foundation
 import SwiftSoup
 import SwiftUI
 
-class HTMLScraperUtility {
+class HTMLScraperUtility: ObservableObject {
     
-    var pageConfig : PageConfig
-    
-    init(pageConfig: PageConfig) {
-        self.pageConfig = pageConfig
-    }
+    @Published var currentPage : Int = 1
+    @Published var totalPage : Int = 1
     
     func scrapArticle(from data: Data) -> Future<[Fish], Never> {
         Future { [self] promise in
@@ -35,11 +32,7 @@ class HTMLScraperUtility {
                 
 
                 
-                DispatchQueue.main.async {
-                    self.pageConfig.updatePageNumberStop(stopPage: Int(pageStop) ?? 1)
-                }
-                
-                print("Page Stop: \(pageConfig.pageNumberStop)")
+                totalPage = Int(pageStop) ?? 1
                 
                 for item in list {
                     let commonEnglishName = try item.select("div.common").text()

@@ -11,13 +11,10 @@ struct ContentView: View {
     @State var searchText: String = ""
 
     @Environment(\.colorScheme) var colorScheme
-    //@ObservedObject var fishbase = FishbaseSearch()
-    @State private var scrollViewID = UUID()
-    
-    //@ObservedObject var pageConfig = PageConfig()
-    
-    @StateObject var pageConfig = PageConfig()
+
     @StateObject var fishbase = FishbaseSearch()
+
+    @State private var scrollViewID = UUID()
 
     private let adaptiveColumn = [
         GridItem()
@@ -40,20 +37,16 @@ struct ContentView: View {
                             }.buttonStyle(.plain)
                         }
 
-                        // Here I want to load more  fishes
-                        if pageConfig.canLoadMore() {
-                            
+                        if fishbase.htmlScraperUtility.currentPage < fishbase.htmlScraperUtility.totalPage {
                             Color.clear
                                 .onAppear {
-                                    print("ContentView: \(pageConfig.pageNumberStart)")
-                                    print("ContentView: \(pageConfig.pageNumberStop)")
+                                    print("ContentView: Current -> \(fishbase.htmlScraperUtility.currentPage)")
+                                    print("ContentView: Total ->  \(fishbase.htmlScraperUtility.totalPage)")
                                     fishbase.getMoreFish(searchText)
+                                    print(fishbase.htmlScraperUtility.currentPage < fishbase.htmlScraperUtility.totalPage)
                                 }
 
                         } else {
-                            
-                        
-                            
                             Spacer()
                             Text("No More Results")
                                 .font(.headline)
@@ -82,6 +75,7 @@ struct ContentView: View {
                 }
                 .navigationTitle("Search Fish")
             }
+
             .searchable(text: $searchText, prompt: Text("Enter Fish Name"))
             .autocorrectionDisabled()
             .onSubmit(of: .search) {
@@ -89,9 +83,9 @@ struct ContentView: View {
                 fishbase.getFish(searchText)
             }
             .onAppear(perform: {
-                fishbase.pageConfig = pageConfig
                 fishbase.getFish(searchText)
             })
+
             .tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Search Fish")

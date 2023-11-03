@@ -12,24 +12,18 @@ import SwiftUI
 
 class FishbaseSearch: ObservableObject {
     let baseURL = "https://www.fishbase.org.au"
-    
-    var pageConfig : PageConfig
 
-    @Published var fishes = [Fish]()
+    var fishes = [Fish]()
 
-    var htmlScraperUtility : HTMLScraperUtility
+    @ObservedObject var htmlScraperUtility = HTMLScraperUtility()
     
     var cancellableTask: AnyCancellable? = nil
     
-    init() {
-        self.pageConfig = PageConfig()
-        self.htmlScraperUtility = HTMLScraperUtility(pageConfig: pageConfig)
-    }
-    
     func getFish(_ searchTerm: String) {
         fishes = []
-        pageConfig.resetPageCount()
-        guard let url = URL(string: baseURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(pageConfig.pageNumberStart)") else { return }
+        htmlScraperUtility.currentPage = 1
+        htmlScraperUtility.totalPage = 1
+        guard let url = URL(string: Constants.Endpoints.BASEURL + "search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)") else { return }
         cancellableTask?.cancel()
         cancellableTask = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data) // extract Data() from tuple
@@ -44,11 +38,17 @@ class FishbaseSearch: ObservableObject {
     }
     
     func getMoreFish(_ searchTerm: String) {
+        print("FishBase: GetMore: Current -> \(htmlScraperUtility.currentPage)")
+        print("ContentView: GetMore: Total ->  \(htmlScraperUtility.totalPage)")
+        if htmlScraperUtility.currentPage >= htmlScraperUtility.totalPage { return }
+        print("FishBase: GetMore: After check : Current -> \(htmlScraperUtility.currentPage)")
+        print("ContentView: GetMore: After check : Total ->  \(htmlScraperUtility.totalPage)")
+        
+        htmlScraperUtility.currentPage += 1
+        print("FishBase: GetMore: After check : After Increment: Current -> \(htmlScraperUtility.currentPage)")
+        print("ContentView: GetMore: After check : After Increment: Total ->  \(htmlScraperUtility.totalPage)")
 
-        if pageConfig.canLoadMore() { return }
-        pageConfig.incrementCurrentPage()
-
-        guard let url = URL(string: baseURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(pageConfig.pageNumberStart)") else { return }
+        guard let url = URL(string: Constants.Endpoints.BASEURL + "search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)") else { return }
         cancellableTask?.cancel()
         cancellableTask = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data) // extract Data() from tuple
