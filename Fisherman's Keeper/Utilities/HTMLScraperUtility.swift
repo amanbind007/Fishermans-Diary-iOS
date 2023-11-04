@@ -11,9 +11,8 @@ import SwiftSoup
 import SwiftUI
 
 class HTMLScraperUtility: ObservableObject {
-    
-    @Published var currentPage : Int = 1
-    @Published var totalPage : Int = 1
+    @Published var currentPage: Int = 1
+    @Published var totalPage: Int = 1
     
     func scrapArticle(from data: Data) -> Future<[Fish], Never> {
         Future { [self] promise in
@@ -30,8 +29,6 @@ class HTMLScraperUtility: ObservableObject {
                 
                 let pageStop = try body.select("li.last").select("a").attr("title").replacingOccurrences(of: "Page ", with: "")
                 
-
-                
                 totalPage = Int(pageStop) ?? 1
                 
                 for item in list {
@@ -40,7 +37,6 @@ class HTMLScraperUtility: ObservableObject {
                     let familyName = try item.select("div.family").text()
                     let imageURL = try item.select("img").attr("src")
                     let articleURL = try item.attr("class", "science").attr("href")
-                    
                     
                     let fish = Fish(commonEnglishName: commonEnglishName, scientificName: scientificName, familyName: familyName, imageURL: Constants.Endpoints.BASEURL + imageURL, articleURL: articleURL)
                     

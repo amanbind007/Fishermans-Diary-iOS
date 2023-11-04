@@ -7,20 +7,18 @@
 
 import Foundation
 
-class PageConfig: ObservableObject{
+class PageConfig: ObservableObject {
     var pageNumberStart: Int = 1
     var pageNumberStop: Int = 1
 
     func incrementCurrentPage() {
         pageNumberStart += 1
     }
-    
-    func resetPageCount(){
+
+    func resetPageCount() {
         pageNumberStop = 1
         pageNumberStart = 1
     }
-    
-    
 
     func updatePageNumberStop(stopPage: Int) {
         pageNumberStop = 0

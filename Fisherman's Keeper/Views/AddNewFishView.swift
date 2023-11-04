@@ -21,18 +21,18 @@ struct AddNewFishView: View {
     var isFormValid: Bool {
         if viewModel.hasCustomTitle {
             guard let customTitle = viewModel.customTitle, !customTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
-                    return false
-                }
+                return false
             }
+        }
 
         if viewModel.hasNote {
-                guard let note = viewModel.note, !note.trimmingCharacters(in: .whitespaces).isEmpty else {
-                    return false
-                }
+            guard let note = viewModel.note, !note.trimmingCharacters(in: .whitespaces).isEmpty else {
+                return false
             }
-
-            return true
         }
+
+        return true
+    }
     
     var body: some View {
         NavigationStack {

@@ -23,7 +23,7 @@ final class FishData {
     var hasTitle: Bool
     var hasNote: Bool
     var hasCount: Bool
-    
+
     init(scientificName: String, commonName: String? = nil, familyName: String, note: String? = nil, title: String? = nil, count: Int, articleURL: String, imageURL: String, dateTime: Double, hasTitle: Bool, hasNote: Bool, hasCount: Bool) {
         self.scientificName = scientificName
         self.commonName = commonName

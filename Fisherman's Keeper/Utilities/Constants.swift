@@ -7,11 +7,14 @@
 
 import Foundation
 
-
 class Constants {
-    
-    class Endpoints {
+    enum Endpoints {
         static let BASEURL = "https://www.fishbase.org.au"
     }
 
+    enum Fonts {
+        static let PTSerifRegular = "PTSerif-Regular"
+        static let PTSerifBoldItalic = "PTSerif-BoldItalic"
+        static let PTSerifBold = "PTSerif-Bold"
+    }
 }

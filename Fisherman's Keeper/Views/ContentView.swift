@@ -19,7 +19,6 @@ struct ContentView: View {
     private let adaptiveColumn = [
         GridItem()
     ]
-    
 
     var body: some View {
         TabView {

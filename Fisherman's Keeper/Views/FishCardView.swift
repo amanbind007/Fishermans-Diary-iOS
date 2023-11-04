@@ -43,9 +43,11 @@ struct FishCardView: View {
                             .padding(2)
                             .background(Color.white)
                             .clipShape(Circle())
-                            
+                        
+                        
                     })
                     .offset(CGSize(width: 154.0, height: -75.0))
+                    .buttonStyle(BorderlessButtonStyle())
                 }
                     
                 HStack {
@@ -77,9 +79,6 @@ struct FishCardView: View {
             
         })
         .padding(.top, 8)
-        .onAppear {
-            print(fish.imageURL)
-        }
     }
 }
 

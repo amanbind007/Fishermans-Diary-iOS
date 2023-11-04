@@ -15,9 +15,9 @@ class UpdateFishViewModel: ObservableObject {
     @Published var note: String?
     @Published var hasFishCount: Bool = false
     @Published var fishCount: Int = 0
-    
+
     var fishData: FishData
-    
+
     init(fishData: FishData) {
         self.fishData = fishData
         self.hasCustomTitle = fishData.hasTitle
@@ -26,9 +26,8 @@ class UpdateFishViewModel: ObservableObject {
         self.note = fishData.note
         self.hasFishCount = fishData.hasCount
         self.fishCount = fishData.count
-        
     }
-    
+
     func updateFish(context: ModelContext) {
         if !hasCustomTitle {
             customTitle = nil
@@ -36,17 +35,13 @@ class UpdateFishViewModel: ObservableObject {
         if !hasNote {
             note = nil
         }
-        
+
         fishData.title = customTitle
         fishData.hasTitle = hasCustomTitle
         fishData.note = note
         fishData.hasNote = hasNote
         fishData.hasCount = hasFishCount
         fishData.count = fishCount
-
-//        let fishData = FishData(scientificName: fishData.scientificName, commonName: fishData.commonName, familyName: fishData.familyName, note: note, title: customTitle, count: fishCount, articleURL: fishData.articleURL, imageURL: fishData.imageURL, dateTime: fishData.dateTime, hasTitle: hasCustomTitle, hasNote: hasNote, hasCount: hasFishCount)
-
-//        context.insert(fishData)
 
         print()
         do {

@@ -37,12 +37,12 @@ struct MyFishListItemView: View {
         VStack {
             if fishData.hasTitle, let title = fishData.title {
                 Text("\(title)")
-                    .font(Font.custom("PTSerif-Bold", size: 20))
+                    .font(Font.custom(Constants.Fonts.PTSerifBold, size: 20))
                     .foregroundColor(.fishCardText)
             }
             else {
                 Text("\(fishData.scientificName)")
-                    .font(Font.custom("PTSerif-Bold", size: 20))
+                    .font(Font.custom(Constants.Fonts.PTSerifBold, size: 20))
                     .foregroundColor(.fishCardText)
             }
             
@@ -73,27 +73,27 @@ struct MyFishListItemView: View {
                         .padding(2)
                         .background(Color.white)
                         .clipShape(Circle())
-                        
                 })
                 .offset(CGSize(width: 133.0, height: -63.0))
+                .buttonStyle(BorderlessButtonStyle())
             }
             .offset(CGSize(width: 0.0, height: -5.0))
             
             HStack {
                 Text(fishData.scientificName)
-                    .font(Font.custom("PTSerif-BoldItalic", size: 19))
+                    .font(Font.custom(Constants.Fonts.PTSerifBoldItalic, size: 19))
                     .foregroundColor(.fishCardText)
                     
                 Spacer()
             }
             HStack {
                 Text(fishData.commonName ?? "")
-                    .font(Font.custom("PTSerif-Regular", size: 17))
+                    .font(Font.custom(Constants.Fonts.PTSerifRegular, size: 17))
                     .foregroundColor(.fishCardText)
                     
                 Spacer()
                 Text(fishData.familyName)
-                    .font(Font.custom("PTSerif-Regular", size: 15))
+                    .font(Font.custom(Constants.Fonts.PTSerifRegular, size: 15))
                     .foregroundColor(.primary)
                     .opacity(1.0)
             }
@@ -101,7 +101,7 @@ struct MyFishListItemView: View {
                 Divider()
                 HStack {
                     Text("NOTE: \(note)")
-                        .font(Font.custom("PTSerif-Regular", size: 15))
+                        .font(Font.custom(Constants.Fonts.PTSerifRegular, size: 15))
                         .foregroundColor(.primary)
                     
                     Spacer()

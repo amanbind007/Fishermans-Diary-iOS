@@ -5,8 +5,8 @@
 //  Created by Aman Bind on 26/10/23.
 //
 
-import SwiftUI
 import CachedAsyncImage
+import SwiftUI
 
 struct UpdateFishView: View {
     var fishData: FishData
@@ -15,7 +15,7 @@ struct UpdateFishView: View {
     
     @Environment(\.dismiss) var dismiss
 
-    @ObservedObject var viewModel : UpdateFishViewModel
+    @ObservedObject var viewModel: UpdateFishViewModel
     
     init(fishData: FishData) {
         self.fishData = fishData
@@ -25,18 +25,18 @@ struct UpdateFishView: View {
     var isFormValid: Bool {
         if viewModel.hasCustomTitle {
             guard let customTitle = viewModel.customTitle, !customTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
-                    return false
-                }
+                return false
             }
+        }
 
         if viewModel.hasNote {
-                guard let note = viewModel.note, !note.trimmingCharacters(in: .whitespaces).isEmpty else {
-                    return false
-                }
+            guard let note = viewModel.note, !note.trimmingCharacters(in: .whitespaces).isEmpty else {
+                return false
             }
-
-            return true
         }
+
+        return true
+    }
     
     var body: some View {
         NavigationStack {
@@ -143,6 +143,8 @@ struct UpdateFishView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     // this button should be only be enabled when the form is valid else it should be disabled
+                    
+                
                     Button(action: {
                         viewModel.updateFish(context: context)
                         
@@ -152,6 +154,7 @@ struct UpdateFishView: View {
                         
                     })
                     .disabled(!isFormValid)
+                    
                 }
             })
         }

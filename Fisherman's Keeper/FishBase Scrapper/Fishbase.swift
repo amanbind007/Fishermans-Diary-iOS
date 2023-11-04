@@ -16,9 +16,9 @@ class FishbaseSearch: ObservableObject {
     @Published var fishes = [Fish]()
 
     @ObservedObject var htmlScraperUtility = HTMLScraperUtility()
-    
+
     var cancellableTask: AnyCancellable? = nil
-    
+
     func getFish(_ searchTerm: String) {
         fishes = []
         htmlScraperUtility.currentPage = 1
@@ -35,12 +35,11 @@ class FishbaseSearch: ObservableObject {
             }, receiveValue: { [unowned self] fishes in
                 self.fishes = fishes
             })
-        
     }
-    
+
     func getMoreFish(_ searchTerm: String) {
         if htmlScraperUtility.currentPage >= htmlScraperUtility.totalPage { return }
-        
+
         htmlScraperUtility.currentPage += 1
 
         guard let url = URL(string: Constants.Endpoints.BASEURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)") else { return }

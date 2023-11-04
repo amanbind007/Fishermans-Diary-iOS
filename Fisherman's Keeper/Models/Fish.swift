@@ -14,7 +14,3 @@ struct Fish {
     let imageURL: String
     let articleURL: String
 }
-
-
-
-
