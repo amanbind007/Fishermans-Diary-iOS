@@ -11,7 +11,7 @@ import Foundation
 class Constants {
     
     class Endpoints {
-        static let BASEURL = "https://www.fishbase.org.au/v4/"
+        static let BASEURL = "https://www.fishbase.org.au"
     }
 
 }

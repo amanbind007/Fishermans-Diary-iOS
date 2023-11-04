@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var searchText: String = ""
+    @State var searchText: String?
 
     @Environment(\.colorScheme) var colorScheme
 
@@ -19,6 +19,7 @@ struct ContentView: View {
     private let adaptiveColumn = [
         GridItem()
     ]
+    
 
     var body: some View {
         TabView {
@@ -40,10 +41,7 @@ struct ContentView: View {
                         if fishbase.htmlScraperUtility.currentPage < fishbase.htmlScraperUtility.totalPage {
                             Color.clear
                                 .onAppear {
-                                    print("ContentView: Current -> \(fishbase.htmlScraperUtility.currentPage)")
-                                    print("ContentView: Total ->  \(fishbase.htmlScraperUtility.totalPage)")
-                                    fishbase.getMoreFish(searchText)
-                                    print(fishbase.htmlScraperUtility.currentPage < fishbase.htmlScraperUtility.totalPage)
+                                    fishbase.getMoreFish(searchText ?? "")
                                 }
 
                         } else {
@@ -76,14 +74,14 @@ struct ContentView: View {
                 .navigationTitle("Search Fish")
             }
 
-            .searchable(text: $searchText, prompt: Text("Enter Fish Name"))
+            .searchable(text: $searchText ?? "", prompt: Text("Enter Fish Name"))
             .autocorrectionDisabled()
             .onSubmit(of: .search) {
                 scrollViewID = UUID()
-                fishbase.getFish(searchText)
+                fishbase.getFish(searchText ?? "")
             }
             .onAppear(perform: {
-                fishbase.getFish(searchText)
+                fishbase.getFish(searchText ?? "")
             })
 
             .tabItem {

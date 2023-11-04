@@ -77,6 +77,9 @@ struct FishCardView: View {
             
         })
         .padding(.top, 8)
+        .onAppear {
+            print(fish.imageURL)
+        }
     }
 }
 
