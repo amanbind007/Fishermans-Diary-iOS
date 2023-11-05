@@ -15,6 +15,8 @@ class AddNewFishViewModel: ObservableObject {
     @Published var note: String?
     @Published var hasFishCount: Bool = false
     @Published var fishCount: Int = 0
+    
+    var imageData = Data()
 
     func saveFish(fish: Fish, context: ModelContext) {
         if !hasCustomTitle {
@@ -23,8 +25,17 @@ class AddNewFishViewModel: ObservableObject {
         if !hasNote {
             note = nil
         }
+        
+        
+        let imageTask = URLSession.shared.dataTask(with: URLRequest(url: URL(string: fish.imageURL)!)) { data, _, _ in
+            guard let data = data else { return }
+            
+            print(data.debugDescription)
+            self.imageData = data
+        }
+        imageTask.resume()
 
-        let fishData = FishData(scientificName: fish.scientificName, commonName: fish.commonEnglishName, familyName: fish.familyName, note: note, title: customTitle, count: fishCount, articleURL: fish.articleURL, imageURL: fish.imageURL, dateTime: Date().timeIntervalSince1970, hasTitle: hasCustomTitle, hasNote: hasNote, hasCount: hasFishCount)
+        let fishData = FishData(scientificName: fish.scientificName, commonName: fish.commonEnglishName, familyName: fish.familyName, note: note, title: customTitle, count: fishCount, articleURL: fish.articleURL, imageData: imageData, imageURL: fish.imageURL, dateTime: Date().timeIntervalSince1970, hasTitle: hasCustomTitle, hasNote: hasNote, hasCount: hasFishCount)
 
         context.insert(fishData)
 

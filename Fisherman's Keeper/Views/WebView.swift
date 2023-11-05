@@ -17,6 +17,7 @@ struct WebView: UIViewRepresentable {
 
     func updateUIView(_ webView: WKWebView, context: Context) {
         let request = URLRequest(url: url)
+        print (url.absoluteString)
 
         webView.load(request)
     }

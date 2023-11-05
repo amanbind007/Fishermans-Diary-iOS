@@ -47,22 +47,32 @@ struct MyFishListItemView: View {
             }
             
             ZStack {
-                CachedAsyncImage(url: URL(string: fishData.imageURL)) { image in
-                    image
-                        .resizable()
-                        .frame(height: 170)
-                        .cornerRadius(10)
-                } placeholder: {
-                    Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
-                        .resizable()
-                        .frame(height: 170)
-                        .cornerRadius(10)
-                }
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 2.0)
-                        .foregroundStyle(Color.fishCardText)
-                }
+//                CachedAsyncImage(url: URL(string: fishData.imageURL)) { image in
+//                    image
+//                        .resizable()
+//                        .frame(height: 170)
+//                        .cornerRadius(10)
+//                } placeholder: {
+//                    Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
+//                        .resizable()
+//                        .frame(height: 170)
+//                        .cornerRadius(10)
+//                }
+//                .overlay {
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .stroke(lineWidth: 2.0)
+//                        .foregroundStyle(Color.fishCardText)
+//                }
+                
+                Image(uiImage: UIImage(data: fishData.imageData) ?? UIImage(named: "fishPlaceholder")!)
+                    .resizable()
+                    .frame(height: 170)
+                    .cornerRadius(10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 2.0)
+                            .foregroundStyle(Color.fishCardText)
+                    }
                 
                 Button(action: {
                     isUpdateFishPresented.toggle()

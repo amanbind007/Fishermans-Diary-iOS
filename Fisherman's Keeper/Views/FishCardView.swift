@@ -26,13 +26,15 @@ struct FishCardView: View {
                             .resizable()
                             .frame(width: UIScreen.main.bounds.width-35, height: 200)
                             .cornerRadius(10)
-                            
+
                     } placeholder: {
                         Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
                             .resizable()
                             .frame(width: UIScreen.main.bounds.width-35, height: 200)
                             .cornerRadius(10)
                     }
+                    
+                    
                         
                     Button(action: {
                         isAddFishPresented.toggle()
@@ -43,7 +45,6 @@ struct FishCardView: View {
                             .padding(2)
                             .background(Color.white)
                             .clipShape(Circle())
-                        
                         
                     })
                     .offset(CGSize(width: 154.0, height: -75.0))
