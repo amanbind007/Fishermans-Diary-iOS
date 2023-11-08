@@ -97,7 +97,7 @@ struct UpdateFishView: View {
                         HStack {
                             TextField("Title", text: $viewModel.customTitle ?? "")
                                 .lineLimit(3)
-                                .textInputAutocapitalization(.characters)
+                                .textInputAutocapitalization(.sentences)
                                 .autocorrectionDisabled()
                         }
                     }
@@ -107,7 +107,7 @@ struct UpdateFishView: View {
                     }
                     if viewModel.hasNote {
                         HStack {
-                            TextField("Enter Note", text: $viewModel.note ?? "")
+                            TextField("Enter Note", text: $viewModel.note ?? "", axis: .vertical)
                                 .lineLimit(3)
                                 .textInputAutocapitalization(.sentences)
                                 .autocorrectionDisabled()

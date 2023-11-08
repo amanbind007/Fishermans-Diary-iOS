@@ -64,7 +64,7 @@ struct MyFishListItemView: View {
 //                        .foregroundStyle(Color.fishCardText)
 //                }
                 
-                Image(uiImage: UIImage(data: fishData.imageData) ?? UIImage(named: "fishPlaceholder")!)
+                Image(uiImage: UIImage(data: fishData.imageData)!)
                     .resizable()
                     .frame(height: 170)
                     .cornerRadius(10)

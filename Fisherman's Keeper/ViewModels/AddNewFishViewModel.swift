@@ -30,21 +30,24 @@ class AddNewFishViewModel: ObservableObject {
         let imageTask = URLSession.shared.dataTask(with: URLRequest(url: URL(string: fish.imageURL)!)) { data, _, _ in
             guard let data = data else { return }
             
-            print(data.debugDescription)
             self.imageData = data
+            
+            let fishData = FishData(scientificName: fish.scientificName, commonName: fish.commonEnglishName, familyName: fish.familyName, note: self.note, title: self.customTitle, count: self.fishCount, articleURL: fish.articleURL, imageData: self.imageData, imageURL: fish.imageURL, dateTime: Date().timeIntervalSince1970, hasTitle: self.hasCustomTitle, hasNote: self.hasNote, hasCount: self.hasFishCount)
+            
+            context.insert(fishData)
+
+            print()
+            do {
+                try context.save()
+                print("added to persistence storage")
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            
+            
         }
         imageTask.resume()
-
-        let fishData = FishData(scientificName: fish.scientificName, commonName: fish.commonEnglishName, familyName: fish.familyName, note: note, title: customTitle, count: fishCount, articleURL: fish.articleURL, imageData: imageData, imageURL: fish.imageURL, dateTime: Date().timeIntervalSince1970, hasTitle: hasCustomTitle, hasNote: hasNote, hasCount: hasFishCount)
-
-        context.insert(fishData)
-
-        print()
-        do {
-            try context.save()
-            print("added to persistence storage")
-        } catch {
-            print(error.localizedDescription)
-        }
+        
     }
 }
