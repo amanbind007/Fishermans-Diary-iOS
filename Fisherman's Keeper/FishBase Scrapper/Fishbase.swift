@@ -19,11 +19,24 @@ class FishbaseSearch: ObservableObject {
 
     var cancellableTask: AnyCancellable? = nil
 
-    func getFish(_ searchTerm: String) {
+    func getFish(for searchTerm: String, sortOrder: FishSortOrder) {
         fishes = []
         htmlScraperUtility.currentPage = 1
         htmlScraperUtility.totalPage = 1
-        guard let url = URL(string: Constants.Endpoints.BASEURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)") else { return }
+
+        var sortOrderString: String
+        switch sortOrder {
+        case .relevance:
+            sortOrderString = "relevance"
+        case .scientificName:
+            sortOrderString = "scientific"
+        case .commonName:
+            sortOrderString = "common"
+        case .familyName:
+            sortOrderString = "family"
+        }
+
+        guard let url = URL(string: Constants.Endpoints.BASEURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)&sort=\(sortOrderString)") else { return }
         cancellableTask?.cancel()
         cancellableTask = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data) // extract Data() from tuple
@@ -37,12 +50,24 @@ class FishbaseSearch: ObservableObject {
             })
     }
 
-    func getMoreFish(_ searchTerm: String) {
+    func getMoreFish(for searchTerm: String, sortOrder: FishSortOrder) {
         if htmlScraperUtility.currentPage >= htmlScraperUtility.totalPage { return }
 
         htmlScraperUtility.currentPage += 1
 
-        guard let url = URL(string: Constants.Endpoints.BASEURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)") else { return }
+        var sortOrderString: String
+        switch sortOrder {
+        case .relevance:
+            sortOrderString = "relevance"
+        case .scientificName:
+            sortOrderString = "scientific"
+        case .commonName:
+            sortOrderString = "common"
+        case .familyName:
+            sortOrderString = "family"
+        }
+
+        guard let url = URL(string: Constants.Endpoints.BASEURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)&sort=\(sortOrderString)") else { return }
         cancellableTask?.cancel()
         cancellableTask = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data) // extract Data() from tuple
