@@ -10,12 +10,15 @@ import SwiftData
 import SwiftUI
 
 struct FishCardView: View {
-    var fish: Fish
+    var fish : Fish
     
     @Environment(\.modelContext) var context
 
     @State var isAddFishPresented: Bool = false
     @State var fishCount: Int = 0
+    @State var showAlert: Bool = false
+    
+    @Query var fishes : [FishData]
     
     var body: some View {
         ZStack {
@@ -37,6 +40,14 @@ struct FishCardView: View {
                     
                         
                     Button(action: {
+                        
+                        for fishData in fishes {
+                            if fishData.scientificName == fish.scientificName {
+                                showAlert.toggle()
+                                return
+                            }
+                        }
+                        
                         isAddFishPresented.toggle()
                     }, label: {
                         Image(systemName: "plus.circle.fill")
@@ -80,6 +91,14 @@ struct FishCardView: View {
             
         })
         .padding(.top, 8)
+        .alert("Fish already exists in My Fish List", isPresented: $showAlert) {
+            Button(role: .none) {
+                //
+            } label: {
+                Text("OK")
+            }
+
+        }
     }
 }
 

@@ -23,8 +23,6 @@ struct SearchFishView: View {
 
     @State private var scrollViewID = UUID()
 
-    @State private var sort: Int = 0
-
     @State var sortOrder: FishSortOrder = .relevance
 
     private let adaptiveColumn = [

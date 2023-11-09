@@ -22,6 +22,9 @@ struct MyFishListView: View {
                 ForEach(fishData, id: \.scientificName) { fish in
 
                     MyFishListItemView(fishData: fish)
+                        .onAppear(perform: {
+                            
+                        })
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
                                 context.delete(fish)

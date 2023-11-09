@@ -121,6 +121,7 @@ struct UpdateFishView: View {
                     if viewModel.hasFishCount {
                         HStack {
                             Stepper("Fish Count: \(viewModel.fishCount)", value: $viewModel.fishCount, in: 0 ... Int.max)
+                                .disabled(true)
                         }
                     }
                         
