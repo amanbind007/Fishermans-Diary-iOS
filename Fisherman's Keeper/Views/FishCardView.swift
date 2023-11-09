@@ -8,9 +8,10 @@
 import CachedAsyncImage
 import SwiftData
 import SwiftUI
+import AlertToast
 
 struct FishCardView: View {
-    var fish : Fish
+    var fish: Fish
     
     @Environment(\.modelContext) var context
 
@@ -18,7 +19,10 @@ struct FishCardView: View {
     @State var fishCount: Int = 0
     @State var showAlert: Bool = false
     
-    @Query var fishes : [FishData]
+    @Binding var isAlreadyAdded: Bool
+    @Binding var isAddedSuccessfully: Bool
+    
+    @Query var fishes: [FishData]
     
     var body: some View {
         ZStack {
@@ -37,13 +41,10 @@ struct FishCardView: View {
                             .cornerRadius(10)
                     }
                     
-                    
-                        
                     Button(action: {
-                        
                         for fishData in fishes {
                             if fishData.scientificName == fish.scientificName {
-                                showAlert.toggle()
+                                isAlreadyAdded.toggle()
                                 return
                             }
                         }
@@ -87,21 +88,16 @@ struct FishCardView: View {
             .shadow(color: .black, radius: 10)
         }
         .sheet(isPresented: $isAddFishPresented, content: {
-            AddNewFishView(fish: fish)
+            AddNewFishView(fish: fish, isAddedSuccessfully: $isAddedSuccessfully)
             
         })
         .padding(.top, 8)
-        .alert("Fish already exists in My Fish List", isPresented: $showAlert) {
-            Button(role: .none) {
-                //
-            } label: {
-                Text("OK")
-            }
-
-        }
+        
     }
 }
 
-#Preview {
-    FishCardView(fish: FishPreviewProvider.fish)
-}
+//#Preview {
+//
+//    
+//    FishCardView(fish: FishPreviewProvider.fish)
+//}

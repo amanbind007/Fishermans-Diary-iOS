@@ -14,6 +14,7 @@
 		5C06A4EC2AEA98CC005E0EC9 /* UpdateFishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06A4EB2AEA98CC005E0EC9 /* UpdateFishViewModel.swift */; };
 		5C06A4F02AF152A3005E0EC9 /* MyFishListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06A4EF2AF152A2005E0EC9 /* MyFishListItemView.swift */; };
 		5C33A49C2AFCF5D400A9CD08 /* SearchFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C33A49B2AFCF5D400A9CD08 /* SearchFishView.swift */; };
+		5C33A49F2AFD2ABF00A9CD08 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 5C33A49E2AFD2ABF00A9CD08 /* AlertToast */; };
 		5C3F28E92AE002D20028DA73 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28E82AE002D20028DA73 /* Fish.swift */; };
 		5C3F28ED2AE142BA0028DA73 /* HTMLScraperUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28EC2AE142BA0028DA73 /* HTMLScraperUtility.swift */; };
 		5C3F28F02AE158050028DA73 /* FishData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F28EF2AE158050028DA73 /* FishData.swift */; };
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C33A49F2AFD2ABF00A9CD08 /* AlertToast in Frameworks */,
 				5C8719692ADB0C4300CA7D09 /* SwiftSoup in Frameworks */,
 				5C87197A2ADC2A5300CA7D09 /* CachedAsyncImage in Frameworks */,
 			);
@@ -219,6 +221,7 @@
 			packageProductDependencies = (
 				5C8719682ADB0C4300CA7D09 /* SwiftSoup */,
 				5C8719792ADC2A5300CA7D09 /* CachedAsyncImage */,
+				5C33A49E2AFD2ABF00A9CD08 /* AlertToast */,
 			);
 			productName = "Fisherman's Keeper";
 			productReference = 5CAB3A132AD065CE00634047 /* Fisherman's Keeper.app */;
@@ -251,6 +254,7 @@
 			packageReferences = (
 				5C8719672ADB0C4300CA7D09 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				5C8719782ADC2A5300CA7D09 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				5C33A49D2AFD2ABF00A9CD08 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 5CAB3A142AD065CE00634047 /* Products */;
 			projectDirPath = "";
@@ -512,6 +516,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5C33A49D2AFD2ABF00A9CD08 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+			};
+		};
 		5C8719672ADB0C4300CA7D09 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
@@ -531,6 +543,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C33A49E2AFD2ABF00A9CD08 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C33A49D2AFD2ABF00A9CD08 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
 		5C8719682ADB0C4300CA7D09 /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C8719672ADB0C4300CA7D09 /* XCRemoteSwiftPackageReference "SwiftSoup" */;

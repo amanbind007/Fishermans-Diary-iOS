@@ -8,6 +8,7 @@
 import CachedAsyncImage
 import SwiftData
 import SwiftUI
+import AlertToast
 
 struct AddNewFishView: View {
     var fish: Fish
@@ -17,6 +18,9 @@ struct AddNewFishView: View {
     @Environment(\.dismiss) var dismiss
     
     @ObservedObject var viewModel = AddNewFishViewModel()
+    
+    @Binding var isAddedSuccessfully : Bool
+    
     
     var isFormValid: Bool {
         if viewModel.hasCustomTitle {
@@ -139,7 +143,7 @@ struct AddNewFishView: View {
                     // this button should be only be enabled when the form is valid else it should be disabled
                     Button(action: {
                         viewModel.saveFish(fish: fish, context: context)
-                        
+                        isAddedSuccessfully.toggle()
                         dismiss()
                     }, label: {
                         Text("Save")
@@ -148,12 +152,17 @@ struct AddNewFishView: View {
                     .disabled(!isFormValid)
                 }
             })
+            .toast(isPresenting: $isAddedSuccessfully) {
+                AlertToast(displayMode: .hud, type: .complete(.green), title: "Added Successfully")
+            }
         }
+        
+        
     }
 }
 
-#Preview {
-    NavigationStack {
-        AddNewFishView(fish: FishPreviewProvider.fish)
-    }
-}
+//#Preview {
+//    NavigationStack {
+//        AddNewFishView(fish: FishPreviewProvider.fish, isAddedSuccessfully: <#Binding<Bool>#>)
+//    }
+//}

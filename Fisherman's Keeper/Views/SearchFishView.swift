@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 enum FishSortOrder {
     case relevance
@@ -24,6 +25,9 @@ struct SearchFishView: View {
     @State private var scrollViewID = UUID()
 
     @State var sortOrder: FishSortOrder = .relevance
+    
+    @State var isAlreadyAdded : Bool = false
+    @State var isAddedSuccessfully: Bool = false
 
     private let adaptiveColumn = [
         GridItem()
@@ -39,7 +43,7 @@ struct SearchFishView: View {
                                 .navigationTitle(fish.scientificName)
 
                         } label: {
-                            FishCardView(fish: fish)
+                            FishCardView(fish: fish, isAlreadyAdded: $isAlreadyAdded, isAddedSuccessfully: $isAddedSuccessfully)
                                 .padding(.horizontal)
 
                         }.buttonStyle(.plain)
@@ -109,6 +113,13 @@ struct SearchFishView: View {
         .onAppear(perform: {
             fishbase.getFish(for: searchText ?? "", sortOrder: sortOrder)
         })
+        .toast(isPresenting: $isAlreadyAdded) {
+            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Already Added")
+        }
+        .toast(isPresenting: $isAddedSuccessfully) {
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Added Successfully")
+        }
+        
     }
 }
 
