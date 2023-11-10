@@ -96,8 +96,6 @@ struct FishCardView: View {
     }
 }
 
-//#Preview {
-//
-//    
-//    FishCardView(fish: FishPreviewProvider.fish)
-//}
+#Preview {
+    FishCardView(fish: FishPreviewProvider.fish, isAlreadyAdded: .constant(false), isAddedSuccessfully: .constant(false))
+}

@@ -157,6 +157,6 @@ struct UpdateFishView: View {
     }
 }
 
-//#Preview {
-//    UpdateFishView(fishData: FishDataPreviewProvider.fishData1)
-//}
+#Preview {
+    UpdateFishView(fishData: FishDataPreviewProvider.fishData1,  viewModel: UpdateFishViewModel(fishData: FishDataPreviewProvider.fishData), isUpdated: .constant(false))
+}

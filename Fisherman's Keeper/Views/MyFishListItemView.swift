@@ -114,6 +114,6 @@ struct MyFishListItemView: View {
     }
 }
 
-//#Preview {
-//    MyFishListItemView(fishData: FishDataPreviewProvider.fishData1)
-//}
+#Preview {
+    MyFishListItemView(fishData: FishDataPreviewProvider.fishData1, fishCount: 10, isUpdated: .constant(false))
+}

@@ -21,20 +21,20 @@ struct NoInternetCardView: View {
                         .resizable()
                         .ignoresSafeArea()
                 }
-                    
+
                 VStack {
                     Image(systemName: "network.slash")
                         .renderingMode(.original)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 130, height: 130)
-                        
+
                     Text("It seems we're not connected to the Internet")
                         .multilineTextAlignment(.center)
                 }
                 .padding()
                 .frame(width: 250, height: 250)
-                    
+
                 .background(
                     Material.thin
                 )

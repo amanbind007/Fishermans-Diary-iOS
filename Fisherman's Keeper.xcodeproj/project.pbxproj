@@ -53,6 +53,7 @@
 		5C3F28F12AE197CD0028DA73 /* AddNewFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFishView.swift; sourceTree = "<group>"; };
 		5C7C62152AF2441100EB0738 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5C7C62172AF26F1E00EB0738 /* PageConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageConfig.swift; sourceTree = "<group>"; };
+		5C83421E2AFE75C7005BE4B8 /* Fisherman's Keeper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fisherman's Keeper.entitlements"; sourceTree = "<group>"; };
 		5C87196B2ADB0C7000CA7D09 /* Fishbase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fishbase.swift; sourceTree = "<group>"; };
 		5C87196D2ADB11FE00CA7D09 /* FishPreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishPreviewProvider.swift; sourceTree = "<group>"; };
 		5C8719722ADC1FCE00CA7D09 /* Fisherman-s-Keeper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Fisherman-s-Keeper-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -156,6 +157,7 @@
 		5CAB3A152AD065CE00634047 /* Fisherman's Keeper */ = {
 			isa = PBXGroup;
 			children = (
+				5C83421E2AFE75C7005BE4B8 /* Fisherman's Keeper.entitlements */,
 				5CA9E8FC2AFE36B0004821A4 /* Globals */,
 				5C9311812AE4464800D421CB /* Extensions */,
 				5C3F28E52AE001FE0028DA73 /* Utilities */,
@@ -451,9 +453,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fisherman's Keeper/Fisherman's Keeper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fisherman's Keeper/Preview Content\"";
+				DEVELOPMENT_TEAM = 96U7DGUQDM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Fisherman-s-Keeper-Info.plist";
@@ -482,9 +486,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fisherman's Keeper/Fisherman's Keeper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fisherman's Keeper/Preview Content\"";
+				DEVELOPMENT_TEAM = 96U7DGUQDM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Fisherman-s-Keeper-Info.plist";
