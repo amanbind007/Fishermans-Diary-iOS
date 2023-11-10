@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var networkMonitor : NetworkMonitor
     var body: some View {
         TabView {
             NavigationStack {
-                SearchFishView()
+                if networkMonitor.isConnected {
+                    SearchFishView()
+                }
+                else{
+                    VStack{
+                        NoInternetCardView()
+                    }
+                    
+                }
+                
             }
             .tabItem {
                 Image(systemName: "magnifyingglass")

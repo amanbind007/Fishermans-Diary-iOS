@@ -5,8 +5,8 @@
 //  Created by Aman Bind on 09/11/23.
 //
 
-import SwiftUI
 import AlertToast
+import SwiftUI
 
 enum FishFilterOption {
     case relevance
@@ -25,8 +25,8 @@ struct SearchFishView: View {
     @State private var scrollViewID = UUID()
 
     @State var sortOrder: FishFilterOption = .relevance
-    
-    @State var isAlreadyAdded : Bool = false
+
+    @State var isAlreadyAdded: Bool = false
     @State var isAddedSuccessfully: Bool = false
 
     private let adaptiveColumn = [
@@ -119,7 +119,6 @@ struct SearchFishView: View {
         .toast(isPresenting: $isAddedSuccessfully) {
             AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Added Successfully")
         }
-        
     }
 }
 

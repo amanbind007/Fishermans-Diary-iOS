@@ -14,7 +14,7 @@ class HTMLScraperUtility: ObservableObject {
     @Published var currentPage: Int = 1
     @Published var totalPage: Int = 1
     
-    var data: Data = Data()
+    var data: Data = .init()
     
     func scrapArticle(from data: Data) -> Future<[Fish], Never> {
         Future { [self] promise in
@@ -40,18 +40,7 @@ class HTMLScraperUtility: ObservableObject {
                     let imageURL = try item.select("img").attr("src")
                     let articleURL = try item.attr("class", "science").attr("href")
                     
-                    // print(Constants.Endpoints.BASEURL+imageURL)
-                    
-//                    let imageTask = URLSession.shared.dataTask(with: URLRequest(url: URL(string: Constants.Endpoints.BASEURL + imageURL)!)) { data, _, _ in
-//                        if let data = data {
-//                            self.data = data
-//                        }
-//                    }
-//                    imageTask.resume()
-//                    
-//                    print(UIImage(data: data).debugDescription)
-                    
-                    let fish = Fish(commonEnglishName: commonEnglishName, scientificName: scientificName, familyName: familyName, imageURL: Constants.Endpoints.BASEURL+imageURL, articleURL: articleURL)
+                    let fish = Fish(commonEnglishName: commonEnglishName, scientificName: scientificName, familyName: familyName, imageURL: Constants.Endpoints.BASEURL + imageURL, articleURL: articleURL)
                     
                     fishes.append(fish)
                 }

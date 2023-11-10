@@ -10,10 +10,15 @@ import SwiftUI
 
 @main
 struct Fisherman_s_KeeperApp: App {
+    
+    @StateObject var networkMonitor = NetworkMonitor()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(networkMonitor)
         }
         .modelContainer(for: [FishData.self])
+        
     }
 }
