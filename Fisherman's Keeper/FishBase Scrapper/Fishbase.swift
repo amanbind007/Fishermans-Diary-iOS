@@ -19,7 +19,7 @@ class FishbaseSearch: ObservableObject {
 
     var cancellableTask: AnyCancellable? = nil
 
-    func getFish(for searchTerm: String, sortOrder: FishSortOrder) {
+    func getFish(for searchTerm: String, sortOrder: FishFilterOption) {
         fishes = []
         htmlScraperUtility.currentPage = 1
         htmlScraperUtility.totalPage = 1
@@ -50,7 +50,7 @@ class FishbaseSearch: ObservableObject {
             })
     }
 
-    func getMoreFish(for searchTerm: String, sortOrder: FishSortOrder) {
+    func getMoreFish(for searchTerm: String, sortOrder: FishFilterOption) {
         if htmlScraperUtility.currentPage >= htmlScraperUtility.totalPage { return }
 
         htmlScraperUtility.currentPage += 1

@@ -5,10 +5,10 @@
 //  Created by Aman Bind on 19/10/23.
 //
 
+import AlertToast
 import CachedAsyncImage
 import SwiftData
 import SwiftUI
-import AlertToast
 
 struct AddNewFishView: View {
     var fish: Fish
@@ -19,8 +19,7 @@ struct AddNewFishView: View {
     
     @ObservedObject var viewModel = AddNewFishViewModel()
     
-    @Binding var isAddedSuccessfully : Bool
-    
+    @Binding var isAddedSuccessfully: Bool
     
     var isFormValid: Bool {
         if viewModel.hasCustomTitle {
@@ -156,13 +155,11 @@ struct AddNewFishView: View {
                 AlertToast(displayMode: .hud, type: .complete(.green), title: "Added Successfully")
             }
         }
-        
-        
     }
 }
 
-//#Preview {
+// #Preview {
 //    NavigationStack {
 //        AddNewFishView(fish: FishPreviewProvider.fish, isAddedSuccessfully: <#Binding<Bool>#>)
 //    }
-//}
+// }

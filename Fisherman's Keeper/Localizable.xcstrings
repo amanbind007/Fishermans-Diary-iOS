@@ -1,0 +1,108 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+
+    },
+    "A to Z (Scientific Name)" : {
+
+    },
+    "Add Custom Title" : {
+
+    },
+    "Add Fish Count" : {
+
+    },
+    "Add Note" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Common Name" : {
+
+    },
+    "Current Title" : {
+
+    },
+    "Date - High to Low" : {
+
+    },
+    "Date - Low to High" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Enter Fish Name" : {
+
+    },
+    "Enter Note" : {
+
+    },
+    "Family Name" : {
+
+    },
+    "Filter" : {
+
+    },
+    "Filter options" : {
+
+    },
+    "Filter Options" : {
+
+    },
+    "Fish Count: %lld" : {
+
+    },
+    "Keyword" : {
+
+    },
+    "My Fish List" : {
+
+    },
+    "No More Results" : {
+
+    },
+    "None" : {
+
+    },
+    "NOTE: %@" : {
+
+    },
+    "Notes" : {
+
+    },
+    "Relevance" : {
+
+    },
+    "Save" : {
+
+    },
+    "Scientific Name" : {
+
+    },
+    "Scientific Name, Common English Name, Family Name" : {
+
+    },
+    "Search Fish" : {
+
+    },
+    "Sort" : {
+
+    },
+    "Sort Options" : {
+
+    },
+    "Title" : {
+
+    },
+    "Title and Note" : {
+
+    },
+    "Z to A (Scientific Name)" : {
+
+    }
+  },
+  "version" : "1.0"
+}

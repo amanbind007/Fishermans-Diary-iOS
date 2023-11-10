@@ -16,12 +16,8 @@ struct MyFishListItemView: View {
     @State var isUpdateFishPresented = false
     @State var fishCount: Int
     
+    @Binding var isUpdated: Bool
     
-    
-    init(fishData: FishData) {
-        self.fishCount = fishData.count
-        self.fishData = fishData
-    }
     
     func updateFishCount(context: ModelContext) {
         fishData.count = fishCount
@@ -110,7 +106,7 @@ struct MyFishListItemView: View {
             }
         }
         .sheet(isPresented: $isUpdateFishPresented, content: {
-            UpdateFishView(fishData: fishData)
+            UpdateFishView(fishData: fishData, viewModel: UpdateFishViewModel(fishData: fishData), isUpdated: $isUpdated)
         })
         .onChange(of: fishCount) {
             updateFishCount(context: context)
@@ -118,6 +114,6 @@ struct MyFishListItemView: View {
     }
 }
 
-#Preview {
-    MyFishListItemView(fishData: FishDataPreviewProvider.fishData1)
-}
+//#Preview {
+//    MyFishListItemView(fishData: FishDataPreviewProvider.fishData1)
+//}

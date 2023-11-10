@@ -8,7 +8,7 @@
 import SwiftUI
 import AlertToast
 
-enum FishSortOrder {
+enum FishFilterOption {
     case relevance
     case scientificName
     case commonName
@@ -24,7 +24,7 @@ struct SearchFishView: View {
 
     @State private var scrollViewID = UUID()
 
-    @State var sortOrder: FishSortOrder = .relevance
+    @State var sortOrder: FishFilterOption = .relevance
     
     @State var isAlreadyAdded : Bool = false
     @State var isAddedSuccessfully: Bool = false
@@ -89,15 +89,15 @@ struct SearchFishView: View {
             .toolbar {
                 ToolbarItem {
                     Menu {
-                        Picker(selection: $sortOrder, label: Text("Sorting options")) {
-                            Text("Relevance").tag(FishSortOrder.relevance)
-                            Text("Scientific Name").tag(FishSortOrder.scientificName)
-                            Text("Common Name").tag(FishSortOrder.commonName)
-                            Text("Family Name").tag(FishSortOrder.familyName)
+                        Picker(selection: $sortOrder, label: Text("Filter options")) {
+                            Text("Relevance").tag(FishFilterOption.relevance)
+                            Text("Scientific Name").tag(FishFilterOption.scientificName)
+                            Text("Common Name").tag(FishFilterOption.commonName)
+                            Text("Family Name").tag(FishFilterOption.familyName)
                         }
                     }
                     label: {
-                        Label("Sort", systemImage: "arrow.up.arrow.down")
+                        Label("Filter", systemImage: "line.3.horizontal.decrease.circle")
                     }
                 }
             }

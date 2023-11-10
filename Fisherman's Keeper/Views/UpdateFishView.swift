@@ -17,10 +17,7 @@ struct UpdateFishView: View {
 
     @ObservedObject var viewModel: UpdateFishViewModel
     
-    init(fishData: FishData) {
-        self.fishData = fishData
-        self.viewModel = UpdateFishViewModel(fishData: fishData)
-    }
+    @Binding var isUpdated: Bool
     
     var isFormValid: Bool {
         if viewModel.hasCustomTitle {
@@ -145,23 +142,21 @@ struct UpdateFishView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     // this button should be only be enabled when the form is valid else it should be disabled
                     
-                
                     Button(action: {
                         viewModel.updateFish(context: context)
-                        
+                        isUpdated.toggle()
                         dismiss()
                     }, label: {
                         Text("Save")
                         
                     })
                     .disabled(!isFormValid)
-                    
                 }
             })
         }
     }
 }
 
-#Preview {
-    UpdateFishView(fishData: FishDataPreviewProvider.fishData1)
-}
+//#Preview {
+//    UpdateFishView(fishData: FishDataPreviewProvider.fishData1)
+//}
