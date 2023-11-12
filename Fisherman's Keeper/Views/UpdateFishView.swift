@@ -40,22 +40,38 @@ struct UpdateFishView: View {
             Form(content: {
                 Section {
                     HStack(alignment: .top) {
-                        Text(fishData.scientificName)
-                            .frame(alignment: .leading)
+                        
+                        if let title = fishData.title {
+                            Text(title)
+                                .frame(alignment: .leading)
+                        }
+                        else{
+                            Text(fishData.scientificName)
+                                .frame(alignment: .leading)
+                        }
+                        
                         Spacer()
                         
-                        CachedAsyncImage(url: URL(string: fishData.imageURL)) { image in
+                        Image(uiImage: UIImage(data: fishData.imageData) ?? UIImage(named: "fishPlaceholder")!)
+                            .resizable()
+                            .cornerRadius(10)
+                            .frame(width: 120, height: 80)
                             
-                            image
-                                .resizable()
-                                .cornerRadius(10)
-                                
-                        } placeholder: {
-                            Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
-                                .resizable()
-                                .cornerRadius(10)
-                        }
-                        .frame(width: 120, height: 80)
+                            
+
+                        
+//                        CachedAsyncImage(url: URL(string: fishData.imageURL)) { image in
+//                            
+//                            image
+//                                .resizable()
+//                                .cornerRadius(10)
+//                                
+//                        } placeholder: {
+//                            Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
+//                                .resizable()
+//                                .cornerRadius(10)
+//                        }
+//                        .frame(width: 120, height: 80)
                     }
                     
                 } header: {

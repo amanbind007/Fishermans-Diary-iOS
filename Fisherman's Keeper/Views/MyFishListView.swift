@@ -16,7 +16,6 @@ enum FilterOption {
     case familyName
     case scientificName
     case commonName
-    case none
 }
 
 enum SortOption {
@@ -30,91 +29,123 @@ struct MyFishListView: View {
     @Environment(\.modelContext) var context
 
     @Query var fishData: [FishData]
-    
+
     @State var searchText: String = ""
-    
+
     @State private var selectedFish: FishData?
 
     @State var isDeleted: Bool = false
     @State var isUpdated: Bool = false
-    
+
     @State var selectedFilterOption: FilterOption = .keyword
     @State var selectedSortOption: SortOption = .dateHighToLow
-    
-    var filteredAndSortedFish: [FishData] {
-            var filteredFish = fishData
 
-            // Apply filter
+    var filteredAndSortedFish: [FishData] {
+        var filteredFish = fishData
+
+        // Apply filter
         if !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                switch selectedFilterOption {
-                case .keyword:
-                    filteredFish = fishData.filter { fish in
-                        return fish.scientificName.lowercased().contains(searchText.lowercased()) ||
-                            fish.commonName?.lowercased().contains(searchText.lowercased()) == true ||
-                            fish.familyName.lowercased().contains(searchText.lowercased()) ||
-                            fish.note?.lowercased().contains(searchText.lowercased()) == true ||
-                            fish.title?.lowercased().contains(searchText.lowercased()) == true
-                    }
-                case .title:
-                    filteredFish = fishData.filter { fish in
-                        return fish.title?.lowercased().contains(searchText.lowercased()) == true
-                    }
-                case .note:
-                    filteredFish = fishData.filter { fish in
-                        return fish.note?.lowercased().contains(searchText.lowercased()) == true
-                    }
-                case .familyName:
-                    filteredFish = fishData.filter { fish in
-                        return fish.familyName.lowercased().contains(searchText.lowercased())
-                    }
-                case .scientificName:
-                    filteredFish = fishData.filter { fish in
-                        return fish.scientificName.lowercased().contains(searchText.lowercased())
-                    }
-                case .commonName:
-                    filteredFish = fishData.filter { fish in
-                        return fish.commonName?.lowercased().contains(searchText.lowercased()) == true
-                    }
-                case .none:
-                    break
+            switch selectedFilterOption {
+            case .keyword:
+                filteredFish = fishData.filter { fish in
+                    fish.scientificName.lowercased().contains(searchText.lowercased()) ||
+                        fish.commonName?.lowercased().contains(searchText.lowercased()) == true ||
+                        fish.familyName.lowercased().contains(searchText.lowercased()) ||
+                        fish.note?.lowercased().contains(searchText.lowercased()) == true ||
+                        fish.title?.lowercased().contains(searchText.lowercased()) == true
+                }
+            case .title:
+                filteredFish = fishData.filter { fish in
+                    fish.title?.lowercased().contains(searchText.lowercased()) == true
+                }
+            case .note:
+                filteredFish = fishData.filter { fish in
+                    fish.note?.lowercased().contains(searchText.lowercased()) == true
+                }
+            case .familyName:
+                filteredFish = fishData.filter { fish in
+                    fish.familyName.lowercased().contains(searchText.lowercased())
+                }
+            case .scientificName:
+                filteredFish = fishData.filter { fish in
+                    fish.scientificName.lowercased().contains(searchText.lowercased())
+                }
+            case .commonName:
+                filteredFish = fishData.filter { fish in
+                    fish.commonName?.lowercased().contains(searchText.lowercased()) == true
                 }
             }
-
-            // Apply sort
-            switch selectedSortOption {
-            case .dateLowToHigh:
-                filteredFish.sort { $0.dateTime < $1.dateTime }
-            case .dateHighToLow:
-                filteredFish.sort { $0.dateTime > $1.dateTime }
-            case .AtoZ:
-                filteredFish.sort { $0.scientificName < $1.scientificName }
-            case .ZtoA:
-                filteredFish.sort { $0.scientificName > $1.scientificName }
-            }
-
-            return filteredFish
         }
+
+        // Apply sort
+        switch selectedSortOption {
+        case .dateLowToHigh:
+            filteredFish.sort { $0.dateTime < $1.dateTime }
+        case .dateHighToLow:
+            filteredFish.sort { $0.dateTime > $1.dateTime }
+        case .AtoZ:
+            filteredFish.sort { $0.scientificName < $1.scientificName }
+        case .ZtoA:
+            filteredFish.sort { $0.scientificName > $1.scientificName }
+        }
+
+        return filteredFish
+    }
 
     var body: some View {
         NavigationStack {
-            List(selection: $selectedFish) {
-                ForEach(filteredAndSortedFish, id: \.scientificName) { fish in
+            List {
+                if fishData.isEmpty {
+                    HStack(alignment: .center, content: {
+                        VStack(alignment: .center) {
+                            Image("Search")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 400, height: 170)
 
-                    MyFishListItemView(fishData: fish, fishCount: fish.count, isUpdated: $isUpdated)
-                        .onAppear(perform: {})
-                        .swipeActions(edge: .trailing) {
-                            Button(role: .destructive) {
-                                context.delete(fish)
-                                isDeleted.toggle()
-                                do {
-                                    try context.save()
-                                } catch {
-                                    print(error.localizedDescription)
-                                }
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }
+                            Text("Fish List is Empty!\nAdd some fishes.")
+                                .multilineTextAlignment(.center)
+                                .padding(20)
                         }
+
+                    })
+                }
+                else {
+                    if filteredAndSortedFish.isEmpty {
+                        HStack(alignment: .center, content: {
+                            VStack(alignment: .center) {
+                                Image("Search")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 400, height: 170)
+
+                                Text("No Fishes Found!\nTry changing filter options to keyword.")
+                                    .multilineTextAlignment(.center)
+                                    .padding(20)
+                            }
+
+                        })
+                    }
+                    else {
+                        ForEach(filteredAndSortedFish, id: \.scientificName) { fish in
+
+                            MyFishListItemView(fishData: fish, fishCount: fish.count, isUpdated: $isUpdated)
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive) {
+                                        context.delete(fish)
+                                        isDeleted.toggle()
+                                        do {
+                                            try context.save()
+                                        }
+                                        catch {
+                                            print(error.localizedDescription)
+                                        }
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
+                        }
+                    }
                 }
             }
             .toolbar(content: {
@@ -133,8 +164,6 @@ struct MyFishListView: View {
                                 .tag(FilterOption.commonName)
                             Text("Notes")
                                 .tag(FilterOption.note)
-                            Text("None")
-                                .tag(FilterOption.none)
                         } label: {
                             Text("Filter Options")
                         }

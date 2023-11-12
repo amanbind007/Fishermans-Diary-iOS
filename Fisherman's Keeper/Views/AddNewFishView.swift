@@ -53,9 +53,7 @@ struct AddNewFishView: View {
                                 .cornerRadius(10)
                                 
                         } placeholder: {
-                            Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
-                                .resizable()
-                                .cornerRadius(10)
+                            ProgressView()
                         }
                         .frame(width: 120, height: 80)
                     }

@@ -35,10 +35,11 @@ struct FishCardView: View {
                             .cornerRadius(10)
 
                     } placeholder: {
-                        Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
-                            .resizable()
+                        
+                        ProgressView()
+                            .scaleEffect(CGSize(width: 2.0, height: 2.0), anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .frame(width: UIScreen.main.bounds.width-35, height: 200)
-                            .cornerRadius(10)
+                        
                     }
                     
                     Button(action: {
@@ -83,9 +84,8 @@ struct FishCardView: View {
                 .padding(.horizontal, 7)
             }
             .padding(5)
-            .background(.thinMaterial)
+            .background(.thickMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 15))
-            .shadow(color: .black, radius: 10)
         }
         .sheet(isPresented: $isAddFishPresented, content: {
             AddNewFishView(fish: fish, isAddedSuccessfully: $isAddedSuccessfully)

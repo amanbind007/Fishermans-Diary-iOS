@@ -18,6 +18,8 @@ class FishbaseSearch: ObservableObject {
     @ObservedObject var htmlScraperUtility = HTMLScraperUtility()
 
     var cancellableTask: AnyCancellable? = nil
+    
+    @Published var isLoading : Bool = false
 
     func getFish(for searchTerm: String, sortOrder: FishFilterOption) {
         fishes = []
@@ -38,12 +40,14 @@ class FishbaseSearch: ObservableObject {
 
         guard let url = URL(string: Constants.Endpoints.BASEURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)&sort=\(sortOrderString)") else { return }
         cancellableTask?.cancel()
+        isLoading = true
         cancellableTask = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data) // extract Data() from tuple
             .flatMap(htmlScraperUtility.scrapArticle(from:))
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { _ in
                 // Action
+                self.isLoading = false
                 print("Get Fish : Stream received")
             }, receiveValue: { [unowned self] fishes in
                 self.fishes = fishes
@@ -69,12 +73,14 @@ class FishbaseSearch: ObservableObject {
 
         guard let url = URL(string: Constants.Endpoints.BASEURL + "/v4/search?&q=\(searchTerm == "" ? "fish" : searchTerm)&page=\(htmlScraperUtility.currentPage)&sort=\(sortOrderString)") else { return }
         cancellableTask?.cancel()
+        self.isLoading = true
         cancellableTask = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data) // extract Data() from tuple
             .flatMap(htmlScraperUtility.scrapArticle(from:))
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { _ in
                 // Action
+                self.isLoading = false
                 print("More Fish : Stream received")
             }, receiveValue: { [unowned self] fishes in
                 self.fishes.append(contentsOf: fishes)

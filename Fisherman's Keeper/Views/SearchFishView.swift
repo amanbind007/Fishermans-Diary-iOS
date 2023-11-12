@@ -54,19 +54,50 @@ struct SearchFishView: View {
                             .onAppear {
                                 fishbase.getMoreFish(for: searchText ?? "", sortOrder: sortOrder)
                             }
-
-                    } else {
-                        Spacer()
-                        Text("No More Results")
-                            .font(.headline)
-                            .foregroundStyle(Color.white)
-                            .padding()
-                            .background {
-                                RoundedRectangle(cornerRadius: 30)
-                                    .background(Material.regular)
+                    }
+                    else {
+                        if fishbase.isLoading {
+                            Spacer(minLength: 150)
+                            VStack {
+                                ProgressView("Loading")
+                                    .scaleEffect(1.5, anchor: .center)
                             }
-                            .clipShape(RoundedRectangle(cornerRadius: 35))
-                        Spacer()
+                            .padding()
+                            .frame(width: 170, height: 170)
+                            .background(
+                                Material.regular
+                            )
+                            .cornerRadius(20)
+                        }
+                        else if fishbase.fishes.isEmpty {
+                            Spacer(minLength: 200)
+                            VStack {
+                                Image("NotFound")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding()
+                                Text("No Results Found")
+                                    .font(.subheadline)
+                            }
+                            .padding()
+                            .frame(width: 170, height: 170)
+                            .background(
+                                Material.regular
+                            )
+                            .cornerRadius(20)
+                        }
+                        else {
+                            Spacer()
+                            Text("No More Results")
+                                .font(.headline)
+                                .padding()
+                                .background {
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .foregroundStyle(Material.thin)
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 35))
+                            Spacer()
+                        }
                     }
 
                 })
