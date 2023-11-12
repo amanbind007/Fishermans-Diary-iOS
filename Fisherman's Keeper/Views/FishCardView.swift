@@ -5,23 +5,28 @@
 //  Created by Aman Bind on 06/10/23.
 //
 
+import AlertToast
 import CachedAsyncImage
 import SwiftData
 import SwiftUI
-import AlertToast
 
+// A view representing a fish card with options to add to the user's list
 struct FishCardView: View {
+    // The fish data to be displayed
     var fish: Fish
     
     @Environment(\.modelContext) var context
 
+    // State variables for sheet presentation, count & alert
     @State var isAddFishPresented: Bool = false
     @State var fishCount: Int = 0
     @State var showAlert: Bool = false
     
+    // Binding for checking if the fish is already added
     @Binding var isAlreadyAdded: Bool
     @Binding var isAddedSuccessfully: Bool
     
+    // Query for fetching fish data
     @Query var fishes: [FishData]
     
     var body: some View {
@@ -35,14 +40,13 @@ struct FishCardView: View {
                             .cornerRadius(10)
 
                     } placeholder: {
-                        
                         ProgressView()
-                            .scaleEffect(CGSize(width: 2.0, height: 2.0), anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .scaleEffect(CGSize(width: 2.0, height: 2.0), anchor: /*@START_MENU_TOKEN@*/ .center/*@END_MENU_TOKEN@*/)
                             .frame(width: UIScreen.main.bounds.width-35, height: 200)
-                        
                     }
                     
                     Button(action: {
+                        // Checking if this fish is already added in Persistence Storage
                         for fishData in fishes {
                             if fishData.scientificName == fish.scientificName {
                                 isAlreadyAdded.toggle()
@@ -92,7 +96,6 @@ struct FishCardView: View {
             
         })
         .padding(.top, 8)
-        
     }
 }
 

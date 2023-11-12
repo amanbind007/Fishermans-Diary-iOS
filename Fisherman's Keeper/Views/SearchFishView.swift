@@ -8,6 +8,7 @@
 import AlertToast
 import SwiftUI
 
+// Enum for users fish filter option
 enum FishFilterOption {
     case relevance
     case scientificName
@@ -15,7 +16,10 @@ enum FishFilterOption {
     case familyName
 }
 
+
+// This view handles the search functionality for fishes
 struct SearchFishView: View {
+    // Search String
     @State var searchText: String?
 
     @Environment(\.colorScheme) var colorScheme
@@ -24,6 +28,7 @@ struct SearchFishView: View {
 
     @State private var scrollViewID = UUID()
 
+    // stores users selected filter option
     @State var sortOrder: FishFilterOption = .relevance
 
     @State var isAlreadyAdded: Bool = false
@@ -36,19 +41,23 @@ struct SearchFishView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
+                // Display fishes in a LazyVGrid
                 LazyVGrid(columns: adaptiveColumn, content: {
                     ForEach(fishbase.fishes, id: \.scientificName) { fish in
                         NavigationLink {
+                            // Navigate to a WebView when a fish is selected
                             WebView(url: URL(string: fish.articleURL)!)
                                 .navigationTitle(fish.scientificName)
 
                         } label: {
+                            // Display a FishCardView for each fish
                             FishCardView(fish: fish, isAlreadyAdded: $isAlreadyAdded, isAddedSuccessfully: $isAddedSuccessfully)
                                 .padding(.horizontal)
 
                         }.buttonStyle(.plain)
                     }
 
+                    // Load more fishes if there are more pages
                     if fishbase.htmlScraperUtility.currentPage < fishbase.htmlScraperUtility.totalPage {
                         Color.clear
                             .onAppear {
@@ -56,6 +65,7 @@ struct SearchFishView: View {
                             }
                     }
                     else {
+                        // Display loading, no results, or end of results messages
                         if fishbase.isLoading {
                             Spacer(minLength: 150)
                             VStack {
@@ -104,6 +114,7 @@ struct SearchFishView: View {
             }
             .id(self.scrollViewID)
             .background {
+                // Set the background based on color scheme
                 let darkBackground = Image("DarkBackground", bundle: Bundle(path: "Assets"))
                     .resizable()
                     .ignoresSafeArea()
@@ -118,6 +129,7 @@ struct SearchFishView: View {
             .autocorrectionDisabled()
 
             .toolbar {
+                // Add a filter option to the toolbar
                 ToolbarItem {
                     Menu {
                         Picker(selection: $sortOrder, label: Text("Filter options")) {

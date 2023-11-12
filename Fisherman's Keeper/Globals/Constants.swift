@@ -7,6 +7,7 @@
 
 import Foundation
 
+// This file contains constant values used throughout the app
 class Constants {
     enum Endpoints {
         static let BASEURL = "https://www.fishbase.org.au"

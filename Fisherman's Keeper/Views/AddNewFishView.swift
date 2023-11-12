@@ -10,24 +10,30 @@ import CachedAsyncImage
 import SwiftData
 import SwiftUI
 
+// This view allows users to add a new fish to their list
 struct AddNewFishView: View {
+    // The fish to be added
     var fish: Fish
     
+    // Core Data context for FishData
     @Environment(\.modelContext) private var context
     
     @Environment(\.dismiss) var dismiss
     
+    // View model for adding a new fish
     @ObservedObject var viewModel = AddNewFishViewModel()
     
     @Binding var isAddedSuccessfully: Bool
     
+    // Check if the form is valid
     var isFormValid: Bool {
+        // Check custom title, if enabled check whether it is not empty
         if viewModel.hasCustomTitle {
             guard let customTitle = viewModel.customTitle, !customTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
                 return false
             }
         }
-
+        // Check if it has notes, if enabled check whether it is not empty
         if viewModel.hasNote {
             guard let note = viewModel.note, !note.trimmingCharacters(in: .whitespaces).isEmpty else {
                 return false
@@ -129,6 +135,7 @@ struct AddNewFishView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
+                    // Cancel 'Add New Fish'
                     Button(action: {
                         dismiss()
                     }, label: {
@@ -137,8 +144,8 @@ struct AddNewFishView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    // this button should be only be enabled when the form is valid else it should be disabled
                     Button(action: {
+                        // Saving fish in the persitence storage
                         viewModel.saveFish(fish: fish, context: context)
                         isAddedSuccessfully.toggle()
                         dismiss()
@@ -156,8 +163,8 @@ struct AddNewFishView: View {
     }
 }
 
- #Preview {
+#Preview {
     NavigationStack {
         AddNewFishView(fish: FishPreviewProvider.fish, isAddedSuccessfully: .constant(false))
     }
- }
+}

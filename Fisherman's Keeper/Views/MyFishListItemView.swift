@@ -9,16 +9,20 @@ import CachedAsyncImage
 import SwiftData
 import SwiftUI
 
+// A view representing an item in the user's fish list
 struct MyFishListItemView: View {
+    
+    // Fish data to be displayed
     var fishData: FishData
     
     @Environment(\.modelContext) var context
+    
     @State var isUpdateFishPresented = false
     @State var fishCount: Int
     
     @Binding var isUpdated: Bool
     
-    
+    // Function to update fish count in persistence storage
     func updateFishCount(context: ModelContext) {
         fishData.count = fishCount
         

@@ -8,17 +8,20 @@
 import CachedAsyncImage
 import SwiftUI
 
+// A view for updating fish details
 struct UpdateFishView: View {
+    // Fish data to be updated
     var fishData: FishData
     
     @Environment(\.modelContext) private var context
-    
     @Environment(\.dismiss) var dismiss
 
+    // View model for updating fish
     @ObservedObject var viewModel: UpdateFishViewModel
     
     @Binding var isUpdated: Bool
     
+    // Check if the form is valid
     var isFormValid: Bool {
         if viewModel.hasCustomTitle {
             guard let customTitle = viewModel.customTitle, !customTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
@@ -57,21 +60,6 @@ struct UpdateFishView: View {
                             .cornerRadius(10)
                             .frame(width: 120, height: 80)
                             
-                            
-
-                        
-//                        CachedAsyncImage(url: URL(string: fishData.imageURL)) { image in
-//                            
-//                            image
-//                                .resizable()
-//                                .cornerRadius(10)
-//                                
-//                        } placeholder: {
-//                            Image("fishPlaceholder", bundle: Bundle(path: "Assets"))
-//                                .resizable()
-//                                .cornerRadius(10)
-//                        }
-//                        .frame(width: 120, height: 80)
                     }
                     
                 } header: {
@@ -156,7 +144,6 @@ struct UpdateFishView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    // this button should be only be enabled when the form is valid else it should be disabled
                     
                     Button(action: {
                         viewModel.updateFish(context: context)

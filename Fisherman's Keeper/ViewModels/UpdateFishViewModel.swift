@@ -8,7 +8,9 @@
 import Foundation
 import SwiftData
 
+// View model for updating fish details
 class UpdateFishViewModel: ObservableObject {
+    // Published properties for tracking various form elements
     @Published var hasCustomTitle: Bool = false
     @Published var hasNote: Bool = false
     @Published var customTitle: String?
@@ -16,8 +18,10 @@ class UpdateFishViewModel: ObservableObject {
     @Published var hasFishCount: Bool = false
     @Published var fishCount: Int = 0
 
+    // Fish data to be updated
     var fishData: FishData
 
+    // Initializer
     init(fishData: FishData) {
         self.fishData = fishData
         self.hasCustomTitle = fishData.hasTitle
@@ -28,6 +32,7 @@ class UpdateFishViewModel: ObservableObject {
         self.fishCount = fishData.count
     }
 
+    // Function to update fish details
     func updateFish(context: ModelContext) {
         if !hasCustomTitle {
             customTitle = nil
@@ -43,10 +48,9 @@ class UpdateFishViewModel: ObservableObject {
         fishData.hasCount = hasFishCount
         fishData.count = fishCount
 
-        print()
+        
         do {
             try context.save()
-            print("added to persistence storage")
         } catch {
             print(error.localizedDescription)
         }

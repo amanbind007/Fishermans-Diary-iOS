@@ -9,6 +9,7 @@ import AlertToast
 import SwiftData
 import SwiftUI
 
+// enums for filter and sort options available
 enum FilterOption {
     case keyword
     case title
@@ -25,21 +26,26 @@ enum SortOption {
     case ZtoA
 }
 
+// A view displaying the list of fishes owned by the user
 struct MyFishListView: View {
     @Environment(\.modelContext) var context
 
+    // Querying all the fishes from SwiftData
     @Query var fishData: [FishData]
 
+    // Search String
     @State var searchText: String = ""
 
-    @State private var selectedFish: FishData?
-
+    // variables to store bool if an fish is deleted
+    // or updated for the toast messages
     @State var isDeleted: Bool = false
     @State var isUpdated: Bool = false
 
+    // tracking the selected filter and sorted option
     @State var selectedFilterOption: FilterOption = .keyword
     @State var selectedSortOption: SortOption = .dateHighToLow
 
+    // Storing filtered and sorted fishes
     var filteredAndSortedFish: [FishData] {
         var filteredFish = fishData
 
@@ -95,6 +101,7 @@ struct MyFishListView: View {
     var body: some View {
         NavigationStack {
             List {
+                // Checking if list fishData is empty and showing the view based on it
                 if fishData.isEmpty {
                     HStack(alignment: .center, content: {
                         VStack(alignment: .center) {
@@ -111,6 +118,8 @@ struct MyFishListView: View {
                     })
                 }
                 else {
+                    // If After sorting and filtering the fishData based on 'search text',
+                    // showing the relevent view to the user with message
                     if filteredAndSortedFish.isEmpty {
                         HStack(alignment: .center, content: {
                             VStack(alignment: .center) {
@@ -132,6 +141,7 @@ struct MyFishListView: View {
                             MyFishListItemView(fishData: fish, fishCount: fish.count, isUpdated: $isUpdated)
                                 .swipeActions(edge: .trailing) {
                                     Button(role: .destructive) {
+                                        // Deleting fish from persistence storage on swipe
                                         context.delete(fish)
                                         isDeleted.toggle()
                                         do {
@@ -149,6 +159,7 @@ struct MyFishListView: View {
                 }
             }
             .toolbar(content: {
+                // Filter Menu in toolbar
                 ToolbarItem {
                     Menu("Filter", systemImage: "line.3.horizontal.decrease.circle") {
                         Picker(selection: $selectedFilterOption) {
@@ -169,6 +180,8 @@ struct MyFishListView: View {
                         }
                     }
                 }
+
+                // Sort Menu in Tool bar
                 ToolbarItem {
                     Menu("Sort", systemImage: "arrow.up.and.down.text.horizontal") {
                         Picker(selection: $selectedSortOption) {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// A view to show if there is no internet Access
 struct NoInternetCardView: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {

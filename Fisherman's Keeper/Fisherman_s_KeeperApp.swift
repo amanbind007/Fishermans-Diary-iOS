@@ -17,8 +17,11 @@ struct Fisherman_s_KeeperApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(networkMonitor)
+            // injecting network monitor to know internet availability in child views
+            
         }
         .modelContainer(for: [FishData.self])
+        // injecting model context
         
     }
 }

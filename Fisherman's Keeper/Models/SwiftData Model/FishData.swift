@@ -9,6 +9,7 @@ import Foundation
 import SwiftData
 import SwiftUI
 
+// This class represents persistent data for a Fish object
 @Model
 final class FishData {
     @Attribute(.unique) var id: UUID
@@ -26,6 +27,7 @@ final class FishData {
     var hasNote: Bool
     var hasCount: Bool
 
+    // Initializer to create a FishData object
     init(id: UUID, scientificName: String, commonName: String? = nil, familyName: String, note: String? = nil, title: String? = nil, count: Int, articleURL: String, imageData: Data, imageURL: String, dateTime: Double, hasTitle: Bool, hasNote: Bool, hasCount: Bool) {
         self.id = id
         self.scientificName = scientificName
