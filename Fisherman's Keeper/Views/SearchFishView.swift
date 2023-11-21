@@ -24,7 +24,7 @@ struct SearchFishView: View {
 
     @Environment(\.colorScheme) var colorScheme
 
-    @StateObject var fishbase = FishbaseSearch()
+    @StateObject var viewModel = FishSearchViewModel()
 
     @State private var scrollViewID = UUID()
 
@@ -43,7 +43,7 @@ struct SearchFishView: View {
             ScrollView {
                 // Display fishes in a LazyVGrid
                 LazyVGrid(columns: adaptiveColumn, content: {
-                    ForEach(fishbase.fishes, id: \.scientificName) { fish in
+                    ForEach(viewModel.fishes, id: \.scientificName) { fish in
                         NavigationLink {
                             // Navigate to a WebView when a fish is selected
                             WebView(url: URL(string: fish.articleURL)!)
@@ -58,15 +58,15 @@ struct SearchFishView: View {
                     }
 
                     // Load more fishes if there are more pages
-                    if fishbase.htmlScraperUtility.currentPage < fishbase.htmlScraperUtility.totalPage {
+                    if viewModel.htmlScraperUtility.currentPage < viewModel.htmlScraperUtility.totalPage {
                         Color.clear
                             .onAppear {
-                                fishbase.getMoreFish(for: searchText ?? "", sortOrder: sortOrder)
+                                viewModel.getMoreFish(for: searchText ?? "", sortOrder: sortOrder)
                             }
                     }
                     else {
                         // Display loading, no results, or end of results messages
-                        if fishbase.isLoading {
+                        if viewModel.isLoading {
                             Spacer(minLength: 150)
                             VStack {
                                 ProgressView("Loading")
@@ -79,7 +79,7 @@ struct SearchFishView: View {
                             )
                             .cornerRadius(20)
                         }
-                        else if fishbase.fishes.isEmpty {
+                        else if viewModel.fishes.isEmpty {
                             Spacer(minLength: 200)
                             VStack {
                                 Image("NotFound")
@@ -148,13 +148,13 @@ struct SearchFishView: View {
 
         .onSubmit(of: .search) {
             scrollViewID = UUID()
-            fishbase.getFish(for: searchText ?? "", sortOrder: sortOrder)
+            viewModel.getFish(for: searchText ?? "", sortOrder: sortOrder)
         }
         .onChange(of: sortOrder) {
-            fishbase.getFish(for: searchText ?? "", sortOrder: sortOrder)
+            viewModel.getFish(for: searchText ?? "", sortOrder: sortOrder)
         }
         .onAppear(perform: {
-            fishbase.getFish(for: searchText ?? "", sortOrder: sortOrder)
+            viewModel.getFish(for: searchText ?? "", sortOrder: sortOrder)
         })
         .toast(isPresenting: $isAlreadyAdded) {
             AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Already Added")

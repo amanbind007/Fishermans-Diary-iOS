@@ -10,8 +10,8 @@ import Foundation
 import SwiftSoup
 import SwiftUI
 
-// This class handles the interaction with the FishBase API to search for fishes
-class FishbaseSearch: ObservableObject {
+// This class handles the interaction with the FishBase search page to search for fishes
+class FishSearchViewModel: ObservableObject {
 
     // Published property to update the UI when fishes change
     @Published var fishes = [Fish]()

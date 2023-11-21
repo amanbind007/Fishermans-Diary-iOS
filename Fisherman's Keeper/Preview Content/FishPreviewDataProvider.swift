@@ -15,5 +15,5 @@ class FishDataPreviewProvider {
 
     static let fishData2 = FishData(id: UUID(), scientificName: "Acanthistius Pictus", commonName: "Brick seabass", familyName: "Serranoidei", note: "Kaddu Machli", count: 5, articleURL: "https://www.fishbase.org.au/v4/summary/57960", imageData: UIImage(named: "fishPlaceholder")!.pngData()!, imageURL: "https://www.fishbase.org.au/v4/images/species/Acpic_u2.jpg", dateTime: Date().timeIntervalSince1970, hasTitle: false, hasNote: true, hasCount: true)
 
-    static let fishDatas = [fishData, fishData1, fishData2]
+    static let fishDataList = [fishData, fishData1, fishData2]
 }
