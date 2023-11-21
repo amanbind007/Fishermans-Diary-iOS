@@ -31,3 +31,41 @@ I have created this after learning various concepts from the NYTimes app by TheC
     <td><img src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/My%20fish%20list%20Update.gif?raw=true" width=250 height=600 /></td>
   </tr>
 </table>
+
+## ⚙️ Requirements
+```
+iOS 17 & Above
+Xcode 15 & Above
+```
+
+## 📚 What you can learn?
+- You can learn Technologies like
+  - SwiftUI
+  - swiftData
+  - Combine
+  - Web Scraping
+  - SwiftSoup
+  - Swift Package Manager(SPM)
+
+- You can learn various Design patterns from this project such as
+  - Dependency injection
+  - Repository 
+  - Singleton
+  - Observers
+
+- You can learn MVVM Two way binding Architecture for SwiftUI with Combine framework
+
+## 🛠 Technical Background
+- Fishermans Diary App was made using SwiftUI as the Core interface with Two Way Binding MVVM Architecture using Combine framework. 
+- SwiftData is used to store the Fish Information offline in device so that the user can access it at later time and modify it.
+- SwiftSoup is used to scrap the required details from the Fishbase website.
+- The User interface of this app mostly uses the inbuilt iOS components to keep the User experience close to the native feel.
+- Fishes can be added to 'My Fish List' by clicking on the '+' icon on Fish Card in Home View
+- App also has support for infinite scroll. It tracks the number of pages scraped for the results based on the search text to load more fishes when user reaches the end of the scroll.
+- This project was built in the mindset of modularity and good coding patterns. Multiple design patterns like Dependency injection, Repository pattern, Singleton Pattern etc.
+
+
+
+
+
+
