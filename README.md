@@ -64,6 +64,29 @@ Xcode 15 & Above
 - App also has support for infinite scroll. It tracks the number of pages scraped for the results based on the search text to load more fishes when user reaches the end of the scroll.
 - This project was built in the mindset of modularity and good coding patterns. Multiple design patterns like Dependency injection, Repository pattern, Singleton Pattern etc.
 
+## 🔗 Dependencies
+
+This project uses SPM (Swift Package Manager) as Dependency manager.
+
+ - [SwiftSoup](https://github.com/scinfu/SwiftSoup)
+ - [SwiftUI Cached Async Image](https://github.com/lorenzofiamingo/swiftui-cached-async-image)
+ - [Alert Toast](https://github.com/elai950/AlertToast)
+
+## ✏️ Contribute
+
+If you want to contribute to this library, you're always welcome!
+
+### What you can do
+You can contribute us by filing issues, bugs and PRs.
+
+### Before you do
+Before you open a issue or report a bug, please check if the issue or bug is related to Xcode or SwiftUI.
+
+## 📱 Contact
+
+Have an project? DM me at 👇
+
+Drop a mail to:- amanbind007@gmail.com
 
 
 
