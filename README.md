@@ -72,6 +72,22 @@ This project uses SPM (Swift Package Manager) as Dependency manager.
  - [SwiftUI Cached Async Image](https://github.com/lorenzofiamingo/swiftui-cached-async-image)
  - [Alert Toast](https://github.com/elai950/AlertToast)
 
+## ⛓ Project Structure
+
+    Fisherman's Keeper        # Root Group
+    .
+    ├── Utilities             # Utilities for Fetching data and Scraping HTML
+    ├── Extensions            # Some useful extensions 
+    ├── Fonts                 # Custom Fonts
+    ├── Globals               # Contains App constants
+    ├── Views                 # SwiftUI Views
+    ├── ViewModel             # Viewmodels for SwiftUI Views
+    ├── Model                 # Model files
+    |   └── SwiftData Model   # Coredata model subclasses
+    |
+    └── Preview Content      # Dummy Data Files for supporting SwiftUI Previews
+
+
 ## ✏️ Contribute
 
 If you want to contribute to this library, you're always welcome!
