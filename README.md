@@ -1,3 +1,11 @@
+
+![SwiftUI](https://img.shields.io/badge/Interface-SwfitUI-red)
+![Architecture](https://img.shields.io/badge/Architecture-MVVM-green)
+![GitHub forks](https://img.shields.io/github/forks/amanbind007/Fishermans-Diary-iOS?label=Fork&style=social)
+![GitHub Stars](https://img.shields.io/github/stars/amanbind007/Fishermans-Diary-iOS?label=Stars&style=social)
+![GitHub Watchers](https://img.shields.io/github/watchers/amanbind007/Fishermans-Diary-iOS?label=Watchers&style=social)
+
+
 # Fishermans-Diary
 Fishermans Diary is Simple and Minimal notes app created using SwiftSoup library for fishers to save fish information(like notes and count) they caught or search for fishes by webscraping Fishbase.org(thanks to fishbase) to know their habitat, diet, location, enviroment, size and many more.
 
