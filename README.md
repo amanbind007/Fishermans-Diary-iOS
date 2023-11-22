@@ -12,6 +12,18 @@ Fishermans Diary is Simple and Minimal notes app created using SwiftSoup library
 ## Special Thanks
 I have created this after learning various concepts from the NYTimes app by TheCodeMonks
 
+## 📝 Table of Contents  
+- [Features](#features)
+- [Requirements](#requirements)
+- [What you can learn?](#whatyoucanlearn)
+- [Technical Background](#techbackground)
+- [Dependencies](#dependencies)
+- [Project Structure](#projectstructure)
+- [Contribute](#contribute)
+- [Contact](#contact)
+
+<a name="features"/>
+
 ## ⛓ Features
 <table style="width:100%">
   <tr>
@@ -40,11 +52,14 @@ I have created this after learning various concepts from the NYTimes app by TheC
   </tr>
 </table>
 
+<a name="requirements"/>
+
 ## ⚙️ Requirements
 ```
 iOS 17 & Above
 Xcode 15 & Above
 ```
+<a name="whatyoucanlearn"/>
 
 ## 📚 What you can learn?
 - You can learn Technologies like
@@ -63,6 +78,8 @@ Xcode 15 & Above
 
 - You can learn MVVM Two way binding Architecture for SwiftUI with Combine framework
 
+<a name="techbackground"/>
+
 ## 🛠 Technical Background
 - Fishermans Diary App was made using SwiftUI as the Core interface with Two Way Binding MVVM Architecture using Combine framework. 
 - SwiftData is used to store the Fish Information offline in device so that the user can access it at later time and modify it.
@@ -72,6 +89,8 @@ Xcode 15 & Above
 - App also has support for infinite scroll. It tracks the number of pages scraped for the results based on the search text to load more fishes when user reaches the end of the scroll.
 - This project was built in the mindset of modularity and good coding patterns. Multiple design patterns like Dependency injection, Repository pattern, Singleton Pattern etc.
 
+<a name="dependencies"/>
+
 ## 🔗 Dependencies
 
 This project uses SPM (Swift Package Manager) as Dependency manager.
@@ -79,6 +98,8 @@ This project uses SPM (Swift Package Manager) as Dependency manager.
  - [SwiftSoup](https://github.com/scinfu/SwiftSoup)
  - [SwiftUI Cached Async Image](https://github.com/lorenzofiamingo/swiftui-cached-async-image)
  - [Alert Toast](https://github.com/elai950/AlertToast)
+
+<a name="projectstructure"/>
 
 ## ⛓ Project Structure
 
@@ -95,6 +116,7 @@ This project uses SPM (Swift Package Manager) as Dependency manager.
     |
     └── Preview Content      # Dummy Data Files for supporting SwiftUI Previews
 
+<a name="contribute"/>
 
 ## ✏️ Contribute
 
@@ -105,6 +127,8 @@ You can contribute us by filing issues, bugs and PRs.
 
 ### Before you do
 Before you open a issue or report a bug, please check if the issue or bug is related to Xcode or SwiftUI.
+
+<a name="contact"/>
 
 ## 📱 Contact
 
