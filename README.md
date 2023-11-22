@@ -118,9 +118,9 @@ This project uses SPM (Swift Package Manager) as Dependency manager.
     ├── Views                 # SwiftUI Views
     ├── ViewModel             # Viewmodels for SwiftUI Views
     ├── Model                 # Model files
-    |   └── SwiftData Model   # Coredata model subclasses
+    |   └── SwiftData Model   # SwiftData model for Persistence Storage
     |
-    └── Preview Content      # Dummy Data Files for supporting SwiftUI Previews
+    └── Preview Content       # Dummy Data Files for supporting SwiftUI Previews
 
 <a name="contribute"/>
 
