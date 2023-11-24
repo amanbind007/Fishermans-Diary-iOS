@@ -163,8 +163,8 @@ struct AddNewFishView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        AddNewFishView(fish: FishPreviewProvider.fish, isAddedSuccessfully: .constant(false))
-    }
-}
+//#Preview {
+//    NavigationStack {
+//        AddNewFishView(fish: FishPreviewProvider.fish, isAddedSuccessfully: .constant(false))
+//    }
+//}
