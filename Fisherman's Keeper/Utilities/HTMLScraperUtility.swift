@@ -44,6 +44,7 @@ class HTMLScraperUtility: ObservableObject {
                     let familyName = try item.select("div.family").text()
                     let imageURL = try item.select("img").attr("src")
                     let articleURL = try item.attr("class", "science").attr("href")
+
                     
                     // Create a Fish object and add it to the array
                     let fish = Fish(commonEnglishName: commonEnglishName, scientificName: scientificName, familyName: familyName, imageURL: Constants.Endpoints.BASEURL + imageURL, articleURL: articleURL)
