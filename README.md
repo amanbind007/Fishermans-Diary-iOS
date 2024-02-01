@@ -141,6 +141,7 @@ Before you open a issue or report a bug, please check if the issue or bug is rel
 ## 📱 Contact
 
 Have an project? DM me at 👇
+LinkedIn: <a href="https://www.linkedin.com/in/amanbind/">Aman Bind</a>
 
 Drop a mail to:- amanbind007@gmail.com
 
