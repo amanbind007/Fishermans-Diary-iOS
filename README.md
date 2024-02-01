@@ -144,14 +144,3 @@ Have an project? DM me at 👇
 
 Drop a mail to:- amanbind007@gmail.com
 
-
-
-
-
-
-
-
-
-
-https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/c91a3972-8a82-4e3a-a6dc-fa96e24c5434
-
