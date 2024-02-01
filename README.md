@@ -39,24 +39,24 @@ I have created this after learning various concepts from the NYTimes app by TheC
     <th>Infinte Scrolling</th> 
   </tr>
   <tr>
-    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/search%20fish%20with%20filter.gif?raw=true" width=250 /></td> 
-    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/infinite%20scrolling.gif?raw=true" width=250/></td> 
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/62c5d670-7dae-47a5-9f9e-a33a3480bec6" width=250 /></td> 
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/d0cffef4-d8df-4e06-8e67-937c39e753f9" width=250/></td> 
   </tr>
   <tr>
     <th>Web View for Detailed Fish Info</th>
     <th>Adding fishes to 'My Fish List'</th> 
   </tr>
   <tr>
-    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/fish%20web%20view%20info.gif?raw=true" width=250/></td>
-    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/Add%20Fish%20to%20My%20Fish%20List.gif?raw=true" width=250/></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/d89022b5-a958-4846-86ef-4a4c225bc4c8" width=250/></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/fe30ee82-1580-4588-9cf4-27581a150a44" width=250/></td>
   </tr>
     <tr>
     <th>Searching for fishes in 'My Fish List' using various Filter and Sort Options</th>
     <th>Updating Fishes in 'My Fish List'</th> 
   </tr>
   <tr>
-    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/search%20sort%20and%20filter%20My%20fish%20list.gif?raw=true" width=250 /></td>
-    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/My%20fish%20list%20Update.gif?raw=true" width=250 /></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/fe8223de-2553-426b-9aa8-e2decba3e2e0" width=250 /></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/c91a3972-8a82-4e3a-a6dc-fa96e24c5434" width=250 /></td>
   </tr>
 </table>
 
@@ -143,3 +143,15 @@ Before you open a issue or report a bug, please check if the issue or bug is rel
 Have an project? DM me at 👇
 
 Drop a mail to:- amanbind007@gmail.com
+
+
+
+
+
+
+
+
+
+
+https://github.com/amanbind007/Fishermans-Diary-iOS/assets/75306571/c91a3972-8a82-4e3a-a6dc-fa96e24c5434
+
