@@ -1,3 +1,5 @@
+![App Banner](https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/Screenshot%20Images/fishermans_diary_cover_rounded_new_small.png?raw=true)
+
 ![Swift](https://img.shields.io/badge/Language-Swift-FF5733)
 ![SwiftUI](https://img.shields.io/badge/Interface-SwfitUI-red)
 ![Architecture](https://img.shields.io/badge/Architecture-MVVM-green)
@@ -37,24 +39,24 @@ I have created this after learning various concepts from the NYTimes app by TheC
     <th>Infinte Scrolling</th> 
   </tr>
   <tr>
-    <td><img src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/search%20fish%20with%20filter.gif?raw=true" width=250 height=600 /></td> 
-    <td><img src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/infinite%20scrolling.gif?raw=true" width=250 height=600 /></td> 
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/search%20fish%20with%20filter.gif?raw=true" width=250 /></td> 
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/infinite%20scrolling.gif?raw=true" width=250/></td> 
   </tr>
   <tr>
     <th>Web View for Detailed Fish Info</th>
     <th>Adding fishes to 'My Fish List'</th> 
   </tr>
   <tr>
-    <td><img src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/fish%20web%20view%20info.gif?raw=true" width=250 height=600 /></td>
-    <td><img src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/Add%20Fish%20to%20My%20Fish%20List.gif?raw=true" width=250 height=600 /></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/fish%20web%20view%20info.gif?raw=true" width=250/></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/Add%20Fish%20to%20My%20Fish%20List.gif?raw=true" width=250/></td>
   </tr>
     <tr>
     <th>Searching for fishes in 'My Fish List' using various Filter and Sort Options</th>
     <th>Updating Fishes in 'My Fish List'</th> 
   </tr>
   <tr>
-    <td><img src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/search%20sort%20and%20filter%20My%20fish%20list.gif?raw=true" width=250 height=600 /></td>
-    <td><img src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/My%20fish%20list%20Update.gif?raw=true" width=250 height=600 /></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/search%20sort%20and%20filter%20My%20fish%20list.gif?raw=true" width=250 /></td>
+    <td><video src="https://github.com/amanbind007/Fishermans-Diary-iOS/blob/main/Screenshots/My%20fish%20list%20Update.gif?raw=true" width=250 /></td>
   </tr>
 </table>
 
@@ -141,8 +143,3 @@ Before you open a issue or report a bug, please check if the issue or bug is rel
 Have an project? DM me at 👇
 
 Drop a mail to:- amanbind007@gmail.com
-
-
-
-
-
