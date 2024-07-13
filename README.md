@@ -128,7 +128,7 @@ This project uses SPM (Swift Package Manager) as Dependency manager.
 
 ## ✏️ Contribute
 
-If you want to contribute to this library, you're always welcome!
+If you want to contribute to this project, you're always welcome!
 
 ### What you can do
 You can contribute us by filing issues, bugs and PRs.
